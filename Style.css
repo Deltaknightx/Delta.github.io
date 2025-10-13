@@ -1,0 +1,210 @@
+/* style.css
+   Updated with a modern blue/white color palette
+   Demonstrates element, class, and id selectors
+   Uses Flexbox & Grid layout, hover effects, and responsive design
+*/
+
+/* ---------- Basic reset & font ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f8ff;              /* Light blue background */
+  color: #1a1a1a;                   /* Main text color */
+  min-height: 100%;
+}
+
+/* ---------- Page container (class selector) ---------- */
+.container {
+  width: min(900px, 92%);
+  margin: 40px auto;
+  background: #ffffff;
+  border: 1px solid #e0e6f0;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+/* ---------- Header (id selector) ---------- */
+#main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #d9e4ff;
+}
+
+#main-header h1 {
+  font-size: 1.7rem;
+  color: #0b63b8;                   /* Primary blue heading */
+}
+
+#main-header p {
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+/* ---------- Navigation (element selector) ---------- */
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+nav ul {
+  display: flex;
+  gap: 14px;
+  list-style: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #eaf1ff;              /* Light blue nav background */
+}
+
+nav a {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #0b63b8;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* Hover effects */
+nav a:hover,
+nav a:focus {
+  background: #d3e2ff;
+  color: #084c8e;
+  border-color: #bfd3ff;
+  transform: translateY(-1px);
+}
+
+/* ---------- Main content ---------- */
+main.article {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h2 {
+  font-size: 1.3rem;
+  color: #0b4da0;
+  margin-bottom: 8px;
+}
+
+p {
+  color: #1a1a1a;
+}
+
+/* ---------- Image placeholders ---------- */
+.figure {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px dashed #b8c8e8;
+  padding: 14px;
+  background: #f8faff;
+  text-align: center;
+  color: #64748b;
+}
+
+/* ---------- Key concepts grid ---------- */
+.concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.concept-card {
+  border: 1px solid #dbe4f8;
+  border-radius: 8px;
+  padding: 14px;
+  background: linear-gradient(180deg, #ffffff, #f3f7ff);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);
+}
+
+/* ---------- Tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid #e0e6f0;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+th {
+  background: #eaf1ff;
+  color: #0b4da0;
+}
+
+/* ---------- Footer ---------- */
+footer.site-footer {
+  margin-top: 26px;
+  padding-top: 14px;
+  border-top: 2px solid #d9e4ff;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #0b63b8;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #084c8e;
+}
+
+/* ---------- Utility classes ---------- */
+.small {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #dbe7ff;
+  color: #084c8e;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 520px) {
+  #main-header h1 {
+    font-size: 1.25rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .container {
+    padding: 20px;
+    margin: 20px auto;
+  }
+}

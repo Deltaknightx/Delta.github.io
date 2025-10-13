@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modern HTTP — HTTP/2 & HTTP/3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header id="main-header">
+      <h1>Modern HTTP: HTTP/2 & HTTP/3</h1>
+      <p class="small">Performance and transport innovations</p>
+
+      <nav aria-label="Main site navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="modern.html">Modern HTTP</a></li>
+          <li><a href="concepts.html">Key Concepts</a></li>
+          <li><a href="references.html">References</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="article">
+      <section>
+        <h2>HTTP/2 (2015)</h2>
+        <p>
+          HTTP/2 introduced multiplexing: multiple requests/responses over a single TCP connection, reducing latency.
+          It also added header compression (HPACK) and server push. Many major sites and CDNs adopted HTTP/2 for better performance.
+        </p>
+      </section>
+
+      <section>
+        <h2>HTTP/3 & QUIC (standardized 2022)</h2>
+        <p>
+          HTTP/3 runs over QUIC (a UDP-based transport). QUIC reduces connection setup time with integrated TLS and avoids TCP head-of-line blocking.
+          HTTP/3 improves performance on unreliable/mobile networks.
+        </p>
+      </section>
+
+      <section>
+        <h2>Impact on real sites</h2>
+        <p>
+          CDNs like Cloudflare and Akamai lead adoption for HTTP/3. Browsers and servers increasingly support HTTP/3, improving load times for interactive sites,
+          streaming, and gaming applications.
+        </p>
+      </section>
+
+      <section>
+        <h2>Connections & Security</h2>
+        <p>
+          HTTPS (HTTP over TLS) is now the norm. Browsers flag plain HTTP as insecure, and new versions of HTTP assume strong encryption.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="small">© Edric Huang — IT 3203</div>
+      <div class="small">
+        This is a class project for IT 3203 — <a href="https://ksuweb.github.io/IT3203/" target="_blank" rel="noopener">ksuweb.github.io/IT3203/</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

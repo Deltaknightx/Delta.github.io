@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Key Concepts — HTTP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header id="main-header">
+      <h1>Key Concepts of HTTP</h1>
+      <p class="small">Short definitions of important terms</p>
+
+      <nav aria-label="Main site navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="modern.html">Modern HTTP</a></li>
+          <li><a href="concepts.html">Key Concepts</a></li>
+          <li><a href="references.html">References</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="article">
+      <section>
+        <h2>Essential terms</h2>
+        <div class="concepts-grid">
+          <div class="concept-card">
+            <h3>HTTP</h3>
+            <p>Hypertext Transfer Protocol — the application-layer protocol used by web clients and servers.</p>
+          </div>
+
+          <div class="concept-card">
+            <h3>HTTPS</h3>
+            <p>HTTP over TLS (encryption and authentication). Browsers expect HTTPS for privacy and integrity.</p>
+          </div>
+
+          <div class="concept-card">
+            <h3>Request / Response</h3>
+            <p>Clients send requests (method, URL, headers), servers return responses (status code, headers, body).</p>
+          </div>
+
+          <div class="concept-card">
+            <h3>Status Codes</h3>
+            <p>3-digit codes (200 OK, 301 Redirect, 404 Not Found, 500 Server Error) that indicate result of a request.</p>
+          </div>
+
+          <div class="concept-card">
+            <h3>QUIC</h3>
+            <p>UDP-based transport protocol used by HTTP/3 that integrates TLS and reduces connection latency.</p>
+          </div>
+
+          <div class="concept-card">
+            <h3>Multiplexing</h3>
+            <p>Sending multiple requests/responses concurrently on one connection (used in HTTP/2), reducing latency.</p>
+          </div>
+
+          <div class="concept-card">
+            <h3>REST</h3>
+            <p>Representational State Transfer — common architectural style for web APIs that uses HTTP methods semantically.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="small">© Edric Huang — IT 3203</div>
+      <div class="small">
+        This is a class project for IT 3203 — <a href="https://ksuweb.github.io/IT3203/" target="_blank" rel="noopener">ksuweb.github.io/IT3203/</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
