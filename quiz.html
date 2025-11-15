@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HTTP Quiz — Self Assessment</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional quiz-specific styles (still uses your blue/white theme) */
+
+    .quiz-container {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .question-box {
+      border: 1px solid #d9e4ff;
+      padding: 18px;
+      background: #ffffff;
+      border-radius: 10px;
+    }
+
+    .question-box h3 {
+      color: #0b63b8;
+      margin-bottom: 10px;
+    }
+
+    .result-box {
+      margin-top: 25px;
+      padding: 18px;
+      border-radius: 8px;
+      display: none; /* Hidden until user submits */
+    }
+
+    .correct {
+      color: #0c7a26; /* green */
+      font-weight: 600;
+    }
+
+    .incorrect {
+      color: #b10e0e; /* red */
+      font-weight: 600;
+    }
+
+    .score-pass {
+      background: #e7f8ea;
+      border: 2px solid #8ed39e;
+    }
+
+    .score-fail {
+      background: #fdeaea;
+      border: 2px solid #e7a1a1;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      background: #0b63b8;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #084c8e;
+    }
+
+    .answer-feedback {
+      margin-top: 6px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header id="main-header">
+      <h1>HTTP Self-Assessment Quiz</h1>
+      <p class="small">Test your understanding of HTTP, HTTPS, and modern protocol versions</p>
+
+      <!-- Navigation -->
+      <nav aria-label="Main site navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="modern.html">Modern HTTP</a></li>
+          <li><a href="concepts.html">Key Concepts</a></li>
+          <li><a href="references.html">References</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- QUIZ CONTENT -->
+    <main class="quiz-container">
+
+      <!-- Q1 Fill in the blank -->
+      <div class="question-box">
+        <h3>1. Fill in the blank:</h3>
+        <p>HTTP is a ______-layer protocol that uses a request–response model.</p>
+        <input type="text" id="q1" placeholder="Your answer here..." />
+      </div>
+
+      <!-- Q2 MCQ -->
+      <div class="question-box">
+        <h3>2. Which method was the only method supported in HTTP/0.9?</h3>
+        <label><input type="radio" name="q2" value="GET"> GET</label><br>
+        <label><input type="radio" name="q2" value="POST"> POST</label><br>
+        <label><input type="radio" name="q2" value="HEAD"> HEAD</label>
+      </div>
+
+      <!-- Q3 MCQ -->
+      <div class="question-box">
+        <h3>3. What major improvement did HTTP/1.1 introduce?</h3>
+        <label><input type="radio" name="q3" value="Persistent Connections"> Persistent connections</label><br>
+        <label><input type="radio" name="q3" value="Server Push"> Server push</label><br>
+        <label><input type="radio" name="q3" value="Binary Framing"> Binary framing</label>
+      </div>
+
+      <!-- Q4 MCQ -->
+      <div class="question-box">
+        <h3>4. What protocol is used to secure HTTPS?</h3>
+        <label><input type="radio" name="q4" value="TLS"> TLS</label><br>
+        <label><input type="radio" name="q4" value="SSH"> SSH</label><br>
+        <label><input type="radio" name="q4" value="SFTP"> SFTP</label>
+      </div>
+
+      <!-- Q5 Multi-select -->
+      <div class="question-box">
+        <h3>5. Which of the following features belong to HTTP/2? (Choose two)</h3>
+        <label><input type="checkbox" id="q5a" value="Multiplexing"> Multiplexing</label><br>
+        <label><input type="checkbox" id="q5b" value="Server Push"> Server Push</label><br>
+        <label><input type="checkbox" id="q5c" value="UDP Transport"> UDP Transport</label><br>
+        <label><input type="checkbox" id="q5d" value="Chunked Transfer Only"> Chunked transfer only</label>
+      </div>
+
+      <!-- Buttons -->
+      <button class="btn" onclick="gradeQuiz()">Submit Quiz</button>
+      <button class="btn" onclick="resetQuiz()" style="background:#666;">Reset Quiz</button>
+
+      <!-- Results box -->
+      <div id="results" class="result-box"></div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="small">© Edric Huang — IT 3203</div>
+      <div class="small">
+        This is a class project for IT 3203 — 
+        <a href="https://ksuweb.github.io/IT3203/" target="_blank">ksuweb.github.io/IT3203/</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JAVASCRIPT SECTION -->
+  <script>
+    /* -----------------------
+       QUIZ ANSWERS
+    ----------------------- */
+    const answers = {
+      q1: "application",         // Fill-in-the-blank
+      q2: "GET",
+      q3: "Persistent Connections",
+      q4: "TLS",
+      q5: ["Multiplexing", "Server Push"]  // Multi-select
+    };
+
+    /* -----------------------
+       GRADE THE QUIZ
+    ----------------------- */
+    function gradeQuiz() {
+      let score = 0;
+      let feedbackHTML = "<h2>Quiz Results</h2>";
+
+      /* Q1 */
+      const q1 = document.getElementById("q1").value.trim().toLowerCase();
+      if (q1 === answers.q1) { score++; feedbackHTML += success("1"); }
+      else { feedbackHTML += fail("1", "application"); }
+
+      /* Q2 */
+      const q2 = document.querySelector("input[name='q2']:checked");
+      if (q2 && q2.value === answers.q2) { score++; feedbackHTML += success("2"); }
+      else { feedbackHTML += fail("2", "GET"); }
+
+      /* Q3 */
+      const q3 = document.querySelector("input[name='q3']:checked");
+      if (q3 && q3.value === answers.q3) { score++; feedbackHTML += success("3"); }
+      else { feedbackHTML += fail("3", "Persistent connections"); }
+
+      /* Q4 */
+      const q4 = document.querySelector("input[name='q4']:checked");
+      if (q4 && q4.value === answers.q4) { score++; feedbackHTML += success("4"); }
+      else { feedbackHTML += fail("4", "TLS"); }
+
+      /* Q5 Multi-select */
+      let q5Correct = 0;
+      if (document.getElementById("q5a").checked) q5Correct++;
+      if (document.getElementById("q5b").checked) q5Correct++;
+
+      if (q5Correct === 2 &&
+          !document.getElementById("q5c").checked &&
+          !document.getElementById("q5d").checked) {
+        score++;
+        feedbackHTML += success("5");
+      } else {
+        feedbackHTML += fail("5", "Multiplexing, Server Push");
+      }
+
+      /* PASS/FAIL */
+      const isPass = score >= 3;
+      const resultsBox = document.getElementById("results");
+      resultsBox.style.display = "block";
+      resultsBox.className = "result-box " + (isPass ? "score-pass" : "score-fail");
+
+      feedbackHTML =
+        `<p><strong>Final Score: ${score}/5</strong></p>` +
+        `<p><strong>Result: ${isPass ? "PASS" : "FAIL"}</strong></p>` +
+        "<hr>" + feedbackHTML;
+
+      resultsBox.innerHTML = feedbackHTML;
+    }
+
+    /* -----------------------
+       SUCCESS & FAIL HELPERS
+    ----------------------- */
+    function success(qNum) {
+      return `<p class="answer-feedback correct">Question ${qNum}: Correct ✓</p>`;
+    }
+
+    function fail(qNum, correctAnswer) {
+      return `<p class="answer-feedback incorrect">Question ${qNum}: Incorrect ✗ — Correct answer: ${correctAnswer}</p>`;
+    }
+
+    /* -----------------------
+       RESET QUIZ
+    ----------------------- */
+    function resetQuiz() {
+      document.querySelectorAll("input").forEach(input => {
+        if (input.type === "checkbox" || input.type === "radio") {
+          input.checked = false;
+        } else {
+          input.value = "";
+        }
+      });
+
+      document.getElementById("results").style.display = "none";
+      document.getElementById("results").innerHTML = "";
+    }
+  </script>
+
+</body>
+</html>
