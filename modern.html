@@ -1,16 +1,20 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Modern HTTP — HTTP/2 & HTTP/3</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="container">
+
+    <!-- HEADER -->
     <header id="main-header">
-      <h1>Modern HTTP: HTTP/2 & HTTP/3</h1>
-      <p class="small">Performance and transport innovations</p>
+      <h1 class="fade-in">Modern HTTP: HTTP/2 & HTTP/3</h1>
+      <p class="small fade-in">Performance improvements, protocol upgrades, and faster web technologies</p>
 
       <nav aria-label="Main site navigation">
         <ul>
@@ -26,45 +30,107 @@
     </header>
 
     <main class="article">
-      <section>
-        <h2>HTTP/2 (2015)</h2>
+
+      <!-- HTTP/2 -->
+      <section class="fade-in">
+        <span class="section-badge">2015</span>
+        <h2>HTTP/2 — Faster Loading Through Multiplexing</h2>
+
         <p>
-          HTTP/2 introduced multiplexing: multiple requests/responses over a single TCP connection, reducing latency.
-          It also added header compression (HPACK) and server push. Many major sites and CDNs adopted HTTP/2 for better performance.
+          Standardized in 2015, <strong>HTTP/2</strong> was designed to reduce page load times and fix
+          long-standing limitations in HTTP/1.1. It introduced several major improvements:
         </p>
+
+        <ul>
+          <li><strong>Multiplexing:</strong> Multiple requests and responses can travel simultaneously over a single TCP connection.</li>
+          <li><strong>Header Compression (HPACK):</strong> Reduces redundant header data to speed up communication.</li>
+          <li><strong>Server Push:</strong> Allows the server to send resources (like CSS or images) before the browser even asks.</li>
+          <li><strong>Binary Framing:</strong> Replaces the old text-based format with compact binary messages.</li>
+        </ul>
+
+        <div class="info-box fade-in">
+          Because HTTP/2 still runs on <strong>TCP</strong>, it can still suffer from head-of-line blocking
+          if a packet is lost — motivating the development of QUIC and HTTP/3.
+        </div>
       </section>
 
-      <section>
-        <h2>HTTP/3 & QUIC (standardized 2022)</h2>
+      <!-- HTTP/3 -->
+      <section class="fade-in">
+        <span class="section-badge">2022</span>
+        <h2>HTTP/3 — A Modern Web Protocol Built on QUIC</h2>
+
         <p>
-          HTTP/3 runs over QUIC (a UDP-based transport). QUIC reduces connection setup time with integrated TLS and avoids TCP head-of-line blocking.
-          HTTP/3 improves performance on unreliable/mobile networks.
+          <strong>HTTP/3</strong>, standardized in 2022, replaces TCP with <strong>QUIC</strong>,
+          a modern transport protocol built on <strong>UDP</strong>. QUIC integrates TLS encryption,
+          reduces connection setup time, and eliminates TCP's head-of-line blocking.
         </p>
+
+        <ul>
+          <li><strong>UDP-based transport:</strong> Enables faster recovery from packet loss.</li>
+          <li><strong>TLS 1.3 built in:</strong> Every HTTP/3 connection is encrypted by default.</li>
+          <li><strong>No slow start:</strong> QUIC manages congestion more efficiently than TCP.</li>
+          <li><strong>0-RTT handshakes:</strong> Returning visitors connect almost instantly.</li>
+        </ul>
+
+        <div class="info-box fade-in">
+          HTTP/3 shines on unreliable Wi-Fi, mobile data, and international networks where packet loss is common.
+        </div>
       </section>
 
-      <section>
-        <h2>Impact on real sites</h2>
+      <!-- REAL-WORLD IMPACT -->
+      <section class="fade-in">
+        <span class="section-badge">Real-World Adoption</span>
+        <h2>How Modern HTTP Affects Real Websites</h2>
+
         <p>
-          CDNs like Cloudflare and Akamai lead adoption for HTTP/3. Browsers and servers increasingly support HTTP/3, improving load times for interactive sites,
-          streaming, and gaming applications.
+          Content delivery networks (CDNs), browsers, and large tech companies have aggressively adopted HTTP/2 and HTTP/3.
+          This improves performance for users across gaming, streaming, and interactive applications.
         </p>
+
+        <ul>
+          <li><strong>YouTube:</strong> Streams video using QUIC (HTTP/3).</li>
+          <li><strong>Cloudflare:</strong> One of the earliest supporters of HTTP/3.</li>
+          <li><strong>Akamai:</strong> Uses HTTP/2/3 to accelerate global content delivery.</li>
+          <li><strong>Chrome & Firefox:</strong> Fully support HTTP/2 and HTTP/3.</li>
+        </ul>
+
+        <div class="info-box fade-in">
+          Today, over half of the world’s web traffic is delivered via HTTP/2 or HTTP/3 — making the modern Web significantly faster than ever before.
+        </div>
       </section>
 
-      <section>
-        <h2>Connections & Security</h2>
+      <!-- SECURITY -->
+      <section class="fade-in">
+        <span class="section-badge">Security & Encryption</span>
+        <h2>Connections & Security in Modern HTTP</h2>
+
         <p>
-          HTTPS (HTTP over TLS) is now the norm. Browsers flag plain HTTP as insecure, and new versions of HTTP assume strong encryption.
+          Modern web protocols assume encryption by default. Browsers actively discourage insecure HTTP
+          by showing warnings or blocking certain features.
         </p>
+
+        <ul>
+          <li><strong>HTTPS everywhere:</strong> Encryption protects privacy and prevents tampering.</li>
+          <li><strong>TLS 1.3:</strong> Modern cryptographic standard used in HTTP/2 and HTTP/3.</li>
+          <li><strong>HSTS:</strong> Forces browsers to use HTTPS automatically.</li>
+        </ul>
+
+        <div class="info-box fade-in">
+          Without HTTPS, sensitive information such as passwords, cookies, or personal data would be exposed to attackers.
+        </div>
       </section>
+
     </main>
 
-    <footer class="site-footer">
+    <!-- FOOTER -->
+    <footer class="site-footer fade-in">
       <div class="small">© Edric Huang — IT 3203</div>
       <div class="small">
-        This is a class project for IT 3203 — <a href="https://ksuweb.github.io/IT3203/" target="_blank" rel="noopener">ksuweb.github.io/IT3203/</a>
+        Class Project — Introduction to Web Development
       </div>
     </footer>
+
   </div>
 </body>
-</html>
 
+</html>
