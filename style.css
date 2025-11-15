@@ -1,10 +1,10 @@
-/* style.css
-   Updated with a modern blue/white color palette
-   Demonstrates element, class, and id selectors
-   Uses Flexbox & Grid layout, hover effects, and responsive design
-*/
+/* ============================================================
+   IT 3203 Project — Clean & Modern Blue Theme
+   Includes: Navigation, Layout, Flexbox/Grid, Hover Effects,
+   Info Boxes, Badges, Animations, and Responsive Design
+   ============================================================ */
 
-/* ---------- Basic reset & font ---------- */
+/* ---------- Reset & Base Styles ---------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,12 +14,12 @@
 html, body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   line-height: 1.6;
-  background: #f5f8ff;              /* Light blue background */
-  color: #1a1a1a;                   /* Main text color */
+  background: #f5f8ff;
+  color: #1a1a1a;
   min-height: 100%;
 }
 
-/* ---------- Page container (class selector) ---------- */
+/* ---------- Container ---------- */
 .container {
   width: min(900px, 92%);
   margin: 40px auto;
@@ -30,7 +30,7 @@ html, body {
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
 
-/* ---------- Header (id selector) ---------- */
+/* ---------- Header ---------- */
 #main-header {
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@ html, body {
 
 #main-header h1 {
   font-size: 1.7rem;
-  color: #0b63b8;                   /* Primary blue heading */
+  color: #0b63b8;
 }
 
 #main-header p {
@@ -51,7 +51,7 @@ html, body {
   font-size: 0.95rem;
 }
 
-/* ---------- Navigation (element selector) ---------- */
+/* ---------- Navigation ---------- */
 nav {
   width: 100%;
   display: flex;
@@ -65,7 +65,7 @@ nav ul {
   list-style: none;
   padding: 8px 14px;
   border-radius: 8px;
-  background: #eaf1ff;              /* Light blue nav background */
+  background: #eaf1ff;
 }
 
 nav a {
@@ -78,7 +78,6 @@ nav a {
   border: 1px solid transparent;
 }
 
-/* Hover effects */
 nav a:hover,
 nav a:focus {
   background: #d3e2ff;
@@ -87,25 +86,29 @@ nav a:focus {
   transform: translateY(-1px);
 }
 
-/* ---------- Main content ---------- */
+/* ---------- Main Content Layout ---------- */
 main.article {
   margin-top: 22px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
 }
 
+/* ---------- Headings ---------- */
 h2 {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   color: #0b4da0;
-  margin-bottom: 8px;
+  border-bottom: 2px solid #d9e4ff;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
 }
 
+/* ---------- Text ---------- */
 p {
   color: #1a1a1a;
 }
 
-/* ---------- Image placeholders ---------- */
+/* ---------- Images ---------- */
 .figure {
   display: block;
   width: 100%;
@@ -117,7 +120,7 @@ p {
   color: #64748b;
 }
 
-/* ---------- Key concepts grid ---------- */
+/* ---------- Grid Cards ---------- */
 .concepts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -144,7 +147,6 @@ table {
 th, td {
   border: 1px solid #e0e6f0;
   padding: 8px 10px;
-  text-align: left;
 }
 
 th {
@@ -153,69 +155,41 @@ th {
 }
 
 /* ---------- Footer ---------- */
-footer.site-footer {
-  margin-top: 26px;
-  padding-top: 14px;
-  border-top: 2px solid #d9e4ff;
+.site-footer {
+  background: #f0f5ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: 1px solid #d9e4ff;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  text-align: center;
-  color: #475569;
-  font-size: 0.9rem;
+  gap: 6px;
 }
 
-footer a {
+.site-footer a {
   color: #0b63b8;
   text-decoration: none;
+  font-weight: 600;
 }
 
-footer a:hover {
-  text-decoration: underline;
+.site-footer a:hover {
   color: #084c8e;
+  text-decoration: underline;
 }
 
-/* ---------- Utility classes ---------- */
+/* ---------- Utility Classes ---------- */
 .small {
   font-size: 0.9rem;
   color: #6b7280;
 }
 
-.badge {
+.badge, .section-badge {
   display: inline-block;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
   background: #dbe7ff;
   color: #084c8e;
-  font-weight: 600;
-  font-size: 0.85rem;
-}
-
-/* ---------- Responsive tweaks ---------- */
-@media (max-width: 520px) {
-  #main-header h1 {
-    font-size: 1.25rem;
-  }
-
-  nav ul {
-    flex-wrap: wrap;
-    gap: 6px;
-    padding: 6px;
-  }
-
-  .container {
-    padding: 20px;
-    margin: 20px auto;
-  }
-}
-
-/* ---------- New Badge Styles ---------- */
-.section-badge {
-  display: inline-block;
-  background: #dbe7ff;
-  color: #084c8e;
-  padding: 4px 10px;
-  border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 8px;
@@ -232,7 +206,7 @@ footer a:hover {
   color: #1a1a1a;
 }
 
-/* ---------- Modern Subtle Fade-In Effects ---------- */
+/* ---------- Fade-in Animation ---------- */
 .fade-in {
   animation: fadeIn 0.6s ease forwards;
   opacity: 0;
@@ -244,35 +218,7 @@ footer a:hover {
   }
 }
 
-/* ---------- Heading Enhancement ---------- */
-h2 {
-  border-bottom: 2px solid #d9e4ff;
-  padding-bottom: 6px;
-  margin-bottom: 12px;
-}
-
-/* ---------- Updated Footer Style ---------- */
-.site-footer {
-  background: #f0f5ff;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 30px;
-  border: 1px solid #d9e4ff;
-  text-align: center;
-}
-
-.site-footer .small a {
-  color: #0b63b8;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.site-footer .small a:hover {
-  color: #084c8e;
-  text-decoration: underline;
-}
-
-/* ---------- Soft Card Shadows (for modern look) ---------- */
+/* ---------- Extra Card Effect ---------- */
 .card-effect {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   border-radius: 12px;
@@ -280,7 +226,7 @@ h2 {
   background: #ffffff;
 }
 
-/* ---------- Improved Responsiveness ---------- */
+/* ---------- Responsive Design ---------- */
 @media (max-width: 600px) {
 
   nav ul {
@@ -306,3 +252,4 @@ h2 {
     font-size: 0.95rem;
   }
 }
+
