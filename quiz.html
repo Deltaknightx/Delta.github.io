@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>HTTP Quiz — Self Assessment</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
-    /* Additional quiz-specific styles (still uses your blue/white theme) */
+    /* QUIZ-SPECIFIC ADDITIONS (kept separate for clarity) */
 
     .quiz-container {
       margin-top: 25px;
@@ -23,24 +25,24 @@
     }
 
     .question-box h3 {
-      color: #0b63b8;
       margin-bottom: 10px;
+      color: #0b63b8;
     }
 
     .result-box {
       margin-top: 25px;
       padding: 18px;
       border-radius: 8px;
-      display: none; /* Hidden until user submits */
+      display: none; /* Hidden until quiz submitted */
     }
 
     .correct {
-      color: #0c7a26; /* green */
+      color: #0c7a26;
       font-weight: 600;
     }
 
     .incorrect {
-      color: #b10e0e; /* red */
+      color: #b10e0e;
       font-weight: 600;
     }
 
@@ -64,6 +66,7 @@
       cursor: pointer;
       transition: 0.2s ease;
       margin-top: 10px;
+      width: fit-content;
     }
 
     .btn:hover {
@@ -79,11 +82,12 @@
 
 <body>
   <div class="container">
-    <header id="main-header">
-      <h1>HTTP Self-Assessment Quiz</h1>
-      <p class="small">Test your understanding of HTTP, HTTPS, and modern protocol versions</p>
 
-      <!-- Navigation -->
+    <!-- HEADER -->
+    <header id="main-header">
+      <h1 class="fade-in">HTTP Self-Assessment Quiz</h1>
+      <p class="small fade-in">Test your understanding of HTTP, HTTPS, and modern protocol versions</p>
+
       <nav aria-label="Main site navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -97,17 +101,28 @@
       </nav>
     </header>
 
-    <!-- QUIZ CONTENT -->
-    <main class="quiz-container">
+    <!-- INTRO -->
+    <main class="article fade-in">
+      <span class="section-badge">Interactive Quiz</span>
+      <h2>Check Your Knowledge</h2>
 
-      <!-- Q1 Fill in the blank -->
+      <div class="info-box fade-in">
+        Answer the questions below to test your understanding of HTTP versions, HTTPS security, 
+        and modern features like multiplexing and QUIC. Your score will appear at the bottom.
+      </div>
+    </main>
+
+    <!-- QUIZ BODY -->
+    <main class="quiz-container fade-in">
+
+      <!-- Q1 -->
       <div class="question-box">
         <h3>1. Fill in the blank:</h3>
         <p>HTTP is a ______-layer protocol that uses a request–response model.</p>
         <input type="text" id="q1" placeholder="Your answer here..." />
       </div>
 
-      <!-- Q2 MCQ -->
+      <!-- Q2 -->
       <div class="question-box">
         <h3>2. Which method was the only method supported in HTTP/0.9?</h3>
         <label><input type="radio" name="q2" value="GET"> GET</label><br>
@@ -115,7 +130,7 @@
         <label><input type="radio" name="q2" value="HEAD"> HEAD</label>
       </div>
 
-      <!-- Q3 MCQ -->
+      <!-- Q3 -->
       <div class="question-box">
         <h3>3. What major improvement did HTTP/1.1 introduce?</h3>
         <label><input type="radio" name="q3" value="Persistent Connections"> Persistent connections</label><br>
@@ -123,7 +138,7 @@
         <label><input type="radio" name="q3" value="Binary Framing"> Binary framing</label>
       </div>
 
-      <!-- Q4 MCQ -->
+      <!-- Q4 -->
       <div class="question-box">
         <h3>4. What protocol is used to secure HTTPS?</h3>
         <label><input type="radio" name="q4" value="TLS"> TLS</label><br>
@@ -131,7 +146,7 @@
         <label><input type="radio" name="q4" value="SFTP"> SFTP</label>
       </div>
 
-      <!-- Q5 Multi-select -->
+      <!-- Q5 -->
       <div class="question-box">
         <h3>5. Which of the following features belong to HTTP/2? (Choose two)</h3>
         <label><input type="checkbox" id="q5a" value="Multiplexing"> Multiplexing</label><br>
@@ -140,40 +155,40 @@
         <label><input type="checkbox" id="q5d" value="Chunked Transfer Only"> Chunked transfer only</label>
       </div>
 
-      <!-- Buttons -->
+      <!-- BUTTONS -->
       <button class="btn" onclick="gradeQuiz()">Submit Quiz</button>
       <button class="btn" onclick="resetQuiz()" style="background:#666;">Reset Quiz</button>
 
-      <!-- Results box -->
-      <div id="results" class="result-box"></div>
+      <!-- RESULTS -->
+      <div id="results" class="result-box fade-in"></div>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
+    <!-- FOOTER -->
+    <footer class="site-footer fade-in">
       <div class="small">© Edric Huang — IT 3203</div>
       <div class="small">
-        This is a class project for IT 3203 — 
-        <a href="https://ksuweb.github.io/IT3203/" target="_blank">ksuweb.github.io/IT3203/</a>
+        Class Project — Introduction to Web Development
       </div>
     </footer>
+
   </div>
 
-  <!-- JAVASCRIPT SECTION -->
+  <!-- JAVASCRIPT -->
   <script>
     /* -----------------------
        QUIZ ANSWERS
     ----------------------- */
     const answers = {
-      q1: "application",         // Fill-in-the-blank
+      q1: "application",
       q2: "GET",
       q3: "Persistent Connections",
       q4: "TLS",
-      q5: ["Multiplexing", "Server Push"]  // Multi-select
+      q5: ["Multiplexing", "Server Push"]
     };
 
     /* -----------------------
-       GRADE THE QUIZ
+       GRADE QUIZ
     ----------------------- */
     function gradeQuiz() {
       let score = 0;
@@ -199,21 +214,20 @@
       if (q4 && q4.value === answers.q4) { score++; feedbackHTML += success("4"); }
       else { feedbackHTML += fail("4", "TLS"); }
 
-      /* Q5 Multi-select */
+      /* Q5 */
       let q5Correct = 0;
       if (document.getElementById("q5a").checked) q5Correct++;
       if (document.getElementById("q5b").checked) q5Correct++;
 
       if (q5Correct === 2 &&
-          !document.getElementById("q5c").checked &&
-          !document.getElementById("q5d").checked) {
+        !document.getElementById("q5c").checked &&
+        !document.getElementById("q5d").checked) {
         score++;
         feedbackHTML += success("5");
       } else {
         feedbackHTML += fail("5", "Multiplexing, Server Push");
       }
 
-      /* PASS/FAIL */
       const isPass = score >= 3;
       const resultsBox = document.getElementById("results");
       resultsBox.style.display = "block";
@@ -228,7 +242,7 @@
     }
 
     /* -----------------------
-       SUCCESS & FAIL HELPERS
+       HELPERS
     ----------------------- */
     function success(qNum) {
       return `<p class="answer-feedback correct">Question ${qNum}: Correct ✓</p>`;
@@ -239,21 +253,27 @@
     }
 
     /* -----------------------
-       RESET QUIZ
+       RESET
     ----------------------- */
     function resetQuiz() {
       document.querySelectorAll("input").forEach(input => {
-        if (input.type === "checkbox" || input.type === "radio") {
+        if (input.type === "radio" || input.type === "checkbox") {
           input.checked = false;
         } else {
           input.value = "";
         }
       });
 
-      document.getElementById("results").style.display = "none";
-      document.getElementById("results").innerHTML = "";
+      const resultsBox = document.getElementById("results");
+      resultsBox.style.display = "none";
+      resultsBox.innerHTML = "";
     }
   </script>
 
 </body>
+
 </html>
+
+</body>
+</html>
+
