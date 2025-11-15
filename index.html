@@ -2,22 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Evolution and Role of HTTP in Modern Web Development</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="container">
-    <!-- Header -->
-    <header id="main-header">
-      <span class="section-badge">Introduction</span>
-      <div class="info-box fade-in">
-  This is a test info box. If you see this styled differently, your CSS works!
-</div>
-      <h1>The Evolution and Role of HTTP in Modern Web Development</h1>
-      <p class="small">A concise guide by <strong>Edric Huang</strong> — Intro to Web Development (IT 3203, Fall 2025)</p>
 
-      <!-- Main nav shown on every page -->
+    <!-- HEADER -->
+    <header id="main-header">
+      <h1 class="fade-in">The Evolution and Role of HTTP in Modern Web Development</h1>
+      <p class="small fade-in">An overview of the HTTP protocol and its impact on how the modern web functions.</p>
+
+      <!-- Navigation -->
       <nav aria-label="Main site navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -31,41 +29,99 @@
       </nav>
     </header>
 
-    <!-- Main content -->
-    <main class="article" role="main">
-      <section>
-        <h2>Introduction</h2>
-        <p>
-          HTTP (Hypertext Transfer Protocol) is the application-level protocol that enables web communication.
-          This project summarizes HTTP’s history, modern developments (HTTP/2 & HTTP/3), core concepts, and resources
-          for further learning.
-        </p>
-      </section>
+    <!-- MAIN CONTENT -->
+    <main class="article">
 
-      <section>
-        <h2>Quick summary</h2>
+      <!-- SECTION 1 -->
+      <section class="fade-in">
+        <span class="section-badge">Introduction</span>
+        <h2>What Is HTTP?</h2>
         <p>
-          From its origins at CERN to the latest QUIC-based HTTP/3, the protocol has evolved to support higher performance,
-          better security (HTTPS), and modern web workloads. Use the pages in this site to explore these topics in more detail.
+          The Hypertext Transfer Protocol (HTTP) is the foundation of web communication.
+          It enables browsers and servers to exchange information using a simple, reliable
+          request–response model that has powered the web since its earliest days.
         </p>
 
-        <div class="figure">
-          <!-- Placeholder for an image -->
-          <img src="1_x0CdGZPOsESRd7Brs_Pgtw.gif" alt="Timeline placeholder" style="max-width:100%;height:auto;">
-          
+        <div class="info-box fade-in">
+          Today, HTTP works seamlessly with HTTPS — the secure version of the protocol —
+          to protect data using modern encryption standards.
         </div>
+
+        <p>
+          You can explore the origins and early versions of HTTP on the
+          <a href="history.html">History</a> page.
+        </p>
       </section>
+
+      <!-- SECTION 2 -->
+      <section class="fade-in">
+        <span class="section-badge">Protocol Growth</span>
+        <h2>Why HTTP Continues to Evolve</h2>
+        <p>
+          As the internet expanded, websites became richer, more dynamic, and more complex.
+          The original versions of HTTP were not designed for video streaming, real-time applications,
+          or large-scale interactive services. To address these challenges, new versions such as
+          <strong>HTTP/1.1</strong>, <strong>HTTP/2</strong>, and <strong>HTTP/3</strong> introduced
+          improvements in speed, security, and efficiency.
+        </p>
+
+        <div class="info-box fade-in">
+          HTTP/3 is the newest version and uses QUIC, a protocol built on top of UDP that provides
+          faster, more reliable connections even on unstable networks.
+        </div>
+
+        <p>
+          To learn more about these improvements, visit the
+          <a href="modern.html">Modern HTTP</a> page.
+        </p>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section class="fade-in">
+        <span class="section-badge">Key Technologies</span>
+        <h2>Core Concepts Behind Web Communication</h2>
+        <p>
+          Understanding HTTP involves studying related ideas such as methods, status codes,
+          persistent connections, encryption, and multiplexing.
+        </p>
+
+        <p>
+          A full list of these important concepts can be found on the
+          <a href="concepts.html">Key Concepts</a> page.
+        </p>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section class="fade-in">
+        <span class="section-badge">Self-Assessment</span>
+        <h2>Ready to Test Your Knowledge?</h2>
+        <p>
+          After reviewing the site, take the interactive quiz to check your understanding of HTTP’s
+          history, features, and modern capabilities.
+        </p>
+
+        <div class="info-box fade-in">
+          The quiz includes multiple-choice, multi-select, and fill-in-the-blank questions.
+        </div>
+
+        <p>
+          Start now by visiting the <a href="quiz.html">Quiz</a> page.
+        </p>
+      </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
+    <!-- FOOTER -->
+    <footer class="site-footer fade-in">
       <div class="small">© Edric Huang — IT 3203</div>
+      <div class="small">Course Project for Introduction to Web Development</div>
       <div class="small">
-        This is a class project for IT 3203 — <a href="https://ksuweb.github.io/IT3203/" target="_blank" rel="noopener">ksuweb.github.io/IT3203/</a>
+        <a href="quiz.html">Take the Quiz</a> • 
+        <a href="concepts.html">View Concepts</a> • 
+        <a href="modern.html">Modern HTTP</a>
       </div>
     </footer>
+
   </div>
 </body>
-
 </html>
-
