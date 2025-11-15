@@ -208,3 +208,101 @@ footer a:hover {
     margin: 20px auto;
   }
 }
+
+/* ---------- New Badge Styles ---------- */
+.section-badge {
+  display: inline-block;
+  background: #dbe7ff;
+  color: #084c8e;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* ---------- Info Box ---------- */
+.info-box {
+  background: #eef5ff;
+  border-left: 5px solid #0b63b8;
+  padding: 14px 16px;
+  margin: 16px 0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+}
+
+/* ---------- Modern Subtle Fade-In Effects ---------- */
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- Heading Enhancement ---------- */
+h2 {
+  border-bottom: 2px solid #d9e4ff;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+/* ---------- Updated Footer Style ---------- */
+.site-footer {
+  background: #f0f5ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: 1px solid #d9e4ff;
+  text-align: center;
+}
+
+.site-footer .small a {
+  color: #0b63b8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-footer .small a:hover {
+  color: #084c8e;
+  text-decoration: underline;
+}
+
+/* ---------- Soft Card Shadows (for modern look) ---------- */
+.card-effect {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+/* ---------- Improved Responsiveness ---------- */
+@media (max-width: 600px) {
+
+  nav ul {
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .container {
+    padding: 18px;
+    margin: 15px auto;
+  }
+
+  #main-header h1 {
+    font-size: 1.3rem;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+  }
+
+  p, li {
+    font-size: 0.95rem;
+  }
+}
