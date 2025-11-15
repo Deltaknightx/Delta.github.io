@@ -1,16 +1,20 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>History of HTTP — The Evolution and Role of HTTP</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="container">
+
+    <!-- HEADER -->
     <header id="main-header">
-      <h1>History of HTTP</h1>
-      <p class="small">Origins and early protocol versions</p>
+      <h1 class="fade-in">History of HTTP</h1>
+      <p class="small fade-in">How the web’s core protocol evolved from 1989 to today</p>
 
       <nav aria-label="Main site navigation">
         <ul>
@@ -26,46 +30,114 @@
     </header>
 
     <main class="article">
-      <section>
-        <h2>Origins (1989–1991)</h2>
-        <p>
-          Tim Berners-Lee at CERN proposed the World Wide Web and a simple protocol for transferring hypertext.
-          HTTP/0.9 was the first version: extremely simple — it supported just the GET method and returned a raw HTML response.
-        </p>
-      </section>
 
-      <section>
-        <h2>HTTP/1.0 and HTTP/1.1 (1996–1997)</h2>
-        <p>
-          As the Web expanded, HTTP/1.0 introduced richer headers and status codes. HTTP/1.1 (1997) added persistent connections,
-          chunked transfer, improved caching, and more robust request/response semantics.
-        </p>
-      </section>
+      <!-- ORIGINS -->
+      <section class="fade-in">
+        <span class="section-badge">1989 — The Beginning</span>
+        <h2>Origins of HTTP (1989–1991)</h2>
 
-      <section>
-        <h2>Why change the protocol?</h2>
         <p>
-          Performance, better use of connections, and richer metadata were major drivers. With more multimedia and dynamic sites,
-          the limitations of opening many TCP connections became clear — and that motivated later innovations.
+          The Hypertext Transfer Protocol began at CERN, where <strong>Tim Berners-Lee</strong> proposed a new way for
+          researchers to share information through hyperlinked documents. His early design introduced:
         </p>
-      </section>
 
-      <section>
-        <h2>Image / Diagram</h2>
-        <div class="figure">
-          <img src="2001-europaeum-eighth.jpg" alt="Tim Berners-Lee placeholder" style="max-width:100%;height:auto;">
-    
+        <ul>
+          <li>A “client–server” communication system</li>
+          <li>A simple text-based protocol to request documents</li>
+          <li>HTML as the language used to write hypertext</li>
+        </ul>
+
+        <div class="info-box fade-in">
+          <strong>HTTP/0.9</strong> was extremely simple — only one request method existed:
+          <code>GET</code>. The server responded with plain HTML, no headers, and no status codes.
+          It was enough to prove that the Web could work.
         </div>
       </section>
+
+      <!-- HTTP/1.x EVOLUTION -->
+      <section class="fade-in">
+        <span class="section-badge">1996–1997</span>
+        <h2>The HTTP/1.0 and HTTP/1.1 Era</h2>
+
+        <p>
+          As the early Web exploded in popularity, browsers and servers needed more features.
+          <strong>HTTP/1.0</strong> (1996) introduced:
+        </p>
+
+        <ul>
+          <li>HTTP headers (metadata about the request/response)</li>
+          <li>Status codes (e.g., <code>404 Not Found</code>)</li>
+          <li>Support for images, scripts, and style files</li>
+        </ul>
+
+        <p>
+          But the real breakthrough was <strong>HTTP/1.1</strong> (1997), which became the most widely used protocol for nearly 20 years.
+          It added:
+        </p>
+
+        <ul>
+          <li><strong>Persistent connections</strong> (reuse the same TCP connection)</li>
+          <li><strong>Chunked transfer encoding</strong> (send data in parts)</li>
+          <li><strong>Better caching rules</strong> for faster browsing</li>
+          <li>Host headers (enabling multiple sites on one server)</li>
+        </ul>
+
+        <div class="info-box fade-in">
+          Fun fact: Most of the modern Web (including many sites today) still supports and uses HTTP/1.1.
+        </div>
+      </section>
+
+      <!-- MOTIVATION FOR CHANGE -->
+      <section class="fade-in">
+        <span class="section-badge">Why Change?</span>
+        <h2>Why Did HTTP Need to Evolve?</h2>
+
+        <p>
+          As websites grew heavier—with images, video, CSS, and JavaScript—HTTP/1.1 struggled because:
+        </p>
+
+        <ul>
+          <li>Each file required its own request</li>
+          <li>Browsers opened many TCP connections at once</li>
+          <li>High latency slowed down page loading</li>
+        </ul>
+
+        <p>
+          These limitations led to new versions like HTTP/2 and HTTP/3, which introduced multiplexing,
+          binary framing, and faster, more efficient transport mechanisms.
+        </p>
+
+        <div class="info-box fade-in">
+          Without improvements to HTTP, modern websites like YouTube, Amazon, or even Canvas would load extremely slowly.
+        </div>
+      </section>
+
+      <!-- IMAGE -->
+      <section class="fade-in">
+        <span class="section-badge">Historical Photo</span>
+        <h2>Tim Berners-Lee</h2>
+
+        <div class="figure fade-in">
+          <img src="2001-europaeum-eighth.jpg"
+               alt="Tim Berners-Lee speaking at a conference"
+               style="max-width:100%;height:auto;">
+        </div>
+      </section>
+
     </main>
 
-    <footer class="site-footer">
+    <!-- FOOTER -->
+    <footer class="site-footer fade-in">
       <div class="small">© Edric Huang — IT 3203</div>
       <div class="small">
-        This is a class project for IT 3203 — <a href="https://ksuweb.github.io/IT3203/" target="_blank" rel="noopener">ksuweb.github.io/IT3203/</a>
+        Class Project for Introduction to Web Development —
+        <a href="https://ksuweb.github.io/IT3203/" target="_blank" rel="noopener">IT 3203 Course Site</a>
       </div>
     </footer>
+
   </div>
 </body>
+
 </html>
+
 
