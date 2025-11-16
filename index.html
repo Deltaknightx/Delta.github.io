@@ -1,19 +1,36 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The Evolution and Role of HTTP in Modern Web Development</title>
+
+  <!--
+    index.html
+    Home page for the HTTP project website.
+    Provides an introduction, overview, and links to all sections.
+    Includes commented structure for Milestone 2 requirements.
+  -->
+
+  <title>Home — Evolution & Role of HTTP</title>
+
+  <!-- Link to main stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="container">
-    <!-- Header -->
-    <header id="main-header">
-      <h1>The Evolution and Role of HTTP in Modern Web Development</h1>
-      <p class="small">A concise guide by <strong>Edric Huang</strong> — Intro to Web Development (IT 3203, Fall 2025)</p>
 
-      <!-- Main nav shown on every page -->
+<body>
+  <!-- Main container limits the width and centers content -->
+  <div class="container">
+
+    <!-- ===========================
+         HEADER & NAVIGATION SECTION
+         Shows site title and navigation bar
+    ============================ -->
+    <header id="main-header">
+      <h1 class="fade-in">The Evolution & Role of HTTP</h1>
+      <p class="small fade-in">A comprehensive overview of the Hypertext Transfer Protocol</p>
+
+      <!-- Primary navigation menu used on all pages -->
       <nav aria-label="Main site navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -22,56 +39,85 @@
           <li><a href="concepts.html">Key Concepts</a></li>
           <li><a href="references.html">References</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
         </ul>
       </nav>
     </header>
 
-    <!-- Main content -->
-    <main class="article" role="main">
-      <section>
-        <h2>Introduction</h2>
-        <p>
-          HTTP (Hypertext Transfer Protocol) is the application-level protocol that enables web communication.
-          This project summarizes HTTP’s history, modern developments (HTTP/2 & HTTP/3), core concepts, and resources
-          for further learning.
-        </p>
-      </section>
 
-      <section>
-        <h2>Table of Contents</h2>
-        <ol>
-          <li><a href="history.html">History of HTTP</a></li>
-          <li><a href="modern.html">Modern HTTP: HTTP/2 and HTTP/3</a></li>
-          <li><a href="concepts.html">Key Concepts</a></li>
-          <li><a href="references.html">References and Resources</a></li>
-          <li><a href="about.html">About the author & project</a></li>
-        </ol>
-      </section>
+    <!-- ===========================
+         MAIN CONTENT SECTION
+         Introduces the topic of HTTP
+    ============================ -->
+    <main class="article">
 
-      <section>
-        <h2>Quick summary</h2>
+      <!-- Intro Section -->
+      <section class="fade-in">
+        <span class="section-badge">Overview</span>
+        <h2>What is HTTP?</h2>
+
         <p>
-          From its origins at CERN to the latest QUIC-based HTTP/3, the protocol has evolved to support higher performance,
-          better security (HTTPS), and modern web workloads. Use the pages in this site to explore these topics in more detail.
+          HTTP (<strong>Hypertext Transfer Protocol</strong>) is the foundation of data communication for
+          the World Wide Web. It defines how clients (like web browsers) request resources from servers,
+          and how servers respond. Everything from loading a simple webpage to running modern interactive
+          applications depends on HTTP.
         </p>
 
-        <div class="figure">
-          <!-- Placeholder for an image -->
-          <img src="1_x0CdGZPOsESRd7Brs_Pgtw.gif" alt="1_x0CdGZPOsESRd7Brs_Pgtw.gif" style="max-width:100%;height:auto;">
+        <div class="info-box">
+          This website explores the evolution of HTTP, from its earliest versions through modern
+          improvements like HTTP/2 and HTTP/3, and includes interactive quizzes to help reinforce learning.
         </div>
       </section>
+
+
+      <!-- Why HTTP Matters -->
+      <section class="fade-in">
+        <span class="section-badge">Importance</span>
+        <h2>Why HTTP Matters Today</h2>
+
+        <p>
+          Despite being more than 30 years old, HTTP remains one of the most important protocols in
+          networking and software development. Modern extensions allow it to support high-speed
+          streaming, mobile applications, APIs, security protocols, and more.
+        </p>
+
+        <ul>
+          <li>Used by nearly all websites and APIs</li>
+          <li>Supports encryption with HTTPS</li>
+          <li>Forms the backbone of cloud and mobile services</li>
+          <li>Improves performance through HTTP/2 and HTTP/3 optimizations</li>
+        </ul>
+      </section>
+
+
+      <!-- Diagram / Image Placeholder -->
+      <section class="fade-in">
+        <span class="section-badge">Diagram</span>
+        <h2>Basic Client–Server Flow</h2>
+
+        <div class="figure">
+          <!-- Example placeholder image (optional). Replace with your own file in /images -->
+          <p>[ HTTP Request → Server → HTTP Response → Client ]</p>
+          <p class="small">Illustration placeholder</p>
+        </div>
+      </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
+
+    <!-- ===========================
+         FOOTER SECTION
+         Appears on all site pages
+    ============================ -->
+    <footer class="site-footer fade-in">
       <div class="small">© Edric Huang — IT 3203</div>
       <div class="small">
-        This is a class project for IT 3203 — <a href="https://ksuweb.github.io/IT3203/" target="_blank" rel="noopener">ksuweb.github.io/IT3203/</a>
+        Class Project — Introduction to Web Development
       </div>
     </footer>
+
   </div>
 </body>
+
 </html>
-
-
 
