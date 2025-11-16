@@ -4,29 +4,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-  <!--
-    concepts.html
-    Provides key vocabulary and foundational concepts related to HTTP.
-    Content rewritten and expanded for Milestone 2, with detailed comments.
-  -->
-
-  <title>Key Concepts — HTTP Fundamentals</title>
-
-  <!-- Global stylesheet -->
+  <title>Key Concepts — HTTP</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- Page container for layout and centering -->
   <div class="container">
 
-    <!-- ==========================================
-         HEADER + NAVIGATION
-    =========================================== -->
+    <!-- HEADER -->
     <header id="main-header">
       <h1 class="fade-in">Key Concepts of HTTP</h1>
-      <p class="small fade-in">Short definitions of essential HTTP terms for study and quiz review</p>
+      <p class="small fade-in">Fundamental terms every web developer should know</p>
 
       <nav aria-label="Main site navigation">
         <ul>
@@ -41,86 +29,135 @@
       </nav>
     </header>
 
-
-    <!-- ==========================================
-         MAIN CONTENT AREA
-         Presents key definitions in card layout grid.
-    =========================================== -->
+    <!-- MAIN CONTENT -->
     <main class="article">
 
       <section class="fade-in">
-        <span class="section-badge">Essential Terms</span>
-        <h2>Important Terms Used Throughout This Site</h2>
+        <span class="section-badge">Core Terms</span>
+        <h2>Essential HTTP Concepts</h2>
 
-        <!-- Grid layout for concept cards -->
+        <p>
+          These are the most important terms related to HTTP and modern web communication.
+          Each concept includes a short definition, a simple example, and why it matters
+          for web development — and for your quiz.
+        </p>
+      </section>
+
+      <section class="fade-in">
         <div class="concepts-grid">
 
-          <!-- Each card explains one HTTP-related term -->
-
-          <div class="concept-card fade-in">
+          <!-- HTTP -->
+          <div class="concept-card card-effect">
             <h3>HTTP</h3>
             <p>
-              The <strong>Hypertext Transfer Protocol</strong>, the core application-layer protocol used for
-              communication between clients (browsers) and servers on the Web. It uses a request/response model.
+              The <strong>Hypertext Transfer Protocol</strong> is the application-layer protocol used for communication
+              between web browsers and web servers.
             </p>
+            <ul>
+              <li><strong>Example:</strong> Browser requests: <code>GET /index.html</code></li>
+              <li><strong>Why it matters:</strong> It defines how all websites transfer data.</li>
+            </ul>
           </div>
 
-          <div class="concept-card fade-in">
+          <!-- HTTPS -->
+          <div class="concept-card card-effect">
             <h3>HTTPS</h3>
             <p>
-              Secure version of HTTP that uses <strong>TLS encryption</strong> to ensure confidentiality,
-              integrity, and authentication. Required for modern websites and APIs.
+              Secure HTTP using <strong>TLS encryption</strong> to protect data from attackers and eavesdropping.
             </p>
+            <ul>
+              <li><strong>Example:</strong> <code>https://www.google.com</code></li>
+              <li><strong>Why it matters:</strong> Required for login pages, payments, and nearly all modern sites.</li>
+            </ul>
           </div>
 
-          <div class="concept-card fade-in">
+          <!-- REQUEST RESPONSE -->
+          <div class="concept-card card-effect">
             <h3>Request / Response</h3>
             <p>
-              The fundamental structure of HTTP communication: a client sends a <strong>request</strong>
-              (method, URL, headers), and the server returns a <strong>response</strong> (status code, headers, body).
+              The fundamental communication cycle: the client sends a request, and the server returns a response.
             </p>
+            <ul>
+              <li><strong>Example:</strong> Client → <code>GET /image.png</code></li>
+              <li><strong>Server returns:</strong> <code>200 OK</code> + image data</li>
+              <li><strong>Why it matters:</strong> All web communication follows this model.</li>
+            </ul>
           </div>
 
-          <div class="concept-card fade-in">
+          <!-- STATUS CODES -->
+          <div class="concept-card card-effect">
             <h3>Status Codes</h3>
             <p>
-              Three-digit codes that indicate the result of a request. Examples include:
-              <strong>200 OK</strong>, <strong>301 Moved</strong>, <strong>404 Not Found</strong>,
-              and <strong>500 Server Error</strong>.
+              Three-digit codes that indicate the result of an HTTP request.
             </p>
+            <ul>
+              <li><strong>200:</strong> OK (success)</li>
+              <li><strong>301:</strong> Moved Permanently</li>
+              <li><strong>404:</strong> Not Found</li>
+              <li><strong>500:</strong> Server Error</li>
+              <li><strong>Why it matters:</strong> Status codes help diagnose problems and guide browser behavior.</li>
+            </ul>
           </div>
 
-          <div class="concept-card fade-in">
+          <!-- QUIC -->
+          <div class="concept-card card-effect">
             <h3>QUIC</h3>
             <p>
-              A modern transport protocol built on <strong>UDP</strong>. QUIC integrates TLS, reduces
-              connection setup time, and prevents TCP-style head-of-line blocking. Used by HTTP/3.
+              A modern transport protocol built on UDP and used by HTTP/3. It integrates TLS, reduces latency,
+              and avoids TCP slow-start.
             </p>
+            <ul>
+              <li><strong>Example:</strong> Streaming video on YouTube (which uses QUIC)</li>
+              <li><strong>Why it matters:</strong> Enables faster, more reliable connections.</li>
+            </ul>
           </div>
 
-          <div class="concept-card fade-in">
+          <!-- MULTIPLEXING -->
+          <div class="concept-card card-effect">
             <h3>Multiplexing</h3>
             <p>
-              A performance feature of HTTP/2 allowing multiple independent requests and responses to
-              share a single connection, reducing latency and improving page load speed.
+              A feature of HTTP/2 that allows multiple requests and responses to be sent at the same time over a single connection.
             </p>
+            <ul>
+              <li><strong>Example:</strong> A webpage loading images, CSS, and JavaScript simultaneously</li>
+              <li><strong>Why it matters:</strong> Reduces wait times and improves page speed.</li>
+            </ul>
           </div>
 
-          <div class="concept-card fade-in">
+          <!-- REST -->
+          <div class="concept-card card-effect">
             <h3>REST</h3>
             <p>
-              <strong>Representational State Transfer</strong> — a popular architectural style used for
-              designing web APIs. REST uses standard HTTP methods like GET, POST, PUT, DELETE to operate on resources.
+              Representational State Transfer — an API design style that uses standard HTTP methods to manipulate web resources.
             </p>
+            <ul>
+              <li><strong>Example:</strong> <code>POST /users</code> creates a new user</li>
+              <li><strong>Why it matters:</strong> REST APIs power mobile apps, cloud services, and modern web systems.</li>
+            </ul>
           </div>
 
-          <!-- Additional card for completeness -->
-          <div class="concept-card fade-in">
+          <!-- HEADERS -->
+          <div class="concept-card card-effect">
             <h3>Headers</h3>
             <p>
-              Metadata included in HTTP requests and responses. Headers specify important details such as
-              content type, cookies, authentication, caching behavior, and connection rules.
+              Key-value pairs that provide metadata for requests and responses, such as content type, caching rules, and cookies.
             </p>
+            <ul>
+              <li><strong>Example:</strong> <code>Content-Type: text/html</code></li>
+              <li><strong>Why it matters:</strong> Headers control how browsers and servers interpret data.</li>
+            </ul>
+          </div>
+
+          <!-- CACHING -->
+          <div class="concept-card card-effect">
+            <h3>Caching</h3>
+            <p>
+              Storing frequently accessed resources (images, HTML, scripts) to reduce load times and server requests.
+            </p>
+            <ul>
+              <li><strong>Example:</strong> Browser caches a logo image</li>
+              <li><strong>Why it matters:</strong> Makes websites load much faster.</li>
+            </ul>
           </div>
 
         </div>
@@ -128,15 +165,9 @@
 
     </main>
 
-
-    <!-- ==========================================
-         FOOTER
-    =========================================== -->
     <footer class="site-footer fade-in">
       <div class="small">© Edric Huang — IT 3203</div>
-      <div class="small">
-        Class Project — Introduction to Web Development
-      </div>
+      <div class="small">Class Project — Introduction to Web Development</div>
     </footer>
 
   </div>
