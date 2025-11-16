@@ -1,35 +1,17 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!--
-    references.html
-    Contains all sources used in the project.
-    Includes APA-style citations and web references.
-    Fully commented for Milestone 2 documentation requirements.
-  -->
-
-  <title>References — HTTP Research Sources</title>
-
-  <!-- Global CSS -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>References and Resources — HTTP</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- Main page wrapper -->
   <div class="container">
-
-    <!-- ==========================================
-         HEADER + NAVIGATION
-    =========================================== -->
     <header id="main-header">
-      <h1 class="fade-in">References</h1>
-      <p class="small fade-in">Sources used throughout this project</p>
+      <h1>References & Resources</h1>
+      <p class="small">Sources used in this project and recommended reading</p>
 
-      <!-- Shared site navigation -->
       <nav aria-label="Main site navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -38,83 +20,49 @@
           <li><a href="concepts.html">Key Concepts</a></li>
           <li><a href="references.html">References</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
         </ul>
       </nav>
     </header>
 
-
-    <!-- ==========================================
-         MAIN CONTENT — APA-style reference list
-    =========================================== -->
     <main class="article">
-
-      <section class="fade-in">
-        <span class="section-badge">Sources</span>
-        <h2>Reference List</h2>
-
-        <!-- Explanation paragraph -->
-        <p>
-          Below is a list of sources used for researching HTTP history, modern protocol versions,
-          performance improvements, and related networking concepts. These references support
-          the content found across the History, Modern HTTP, Key Concepts, and Quiz pages.
-        </p>
-
-        <!-- Actual reference entries -->
-        <ul class="reference-list">
-
-          <!-- Example official RFC source -->
+      <section>
+        <h2>Project citations</h2>
+        <ol>
           <li>
-            Fielding, R., Reschke, J. (2014). <em>RFC 7230: Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing.</em>
-            Internet Engineering Task Force.
+            Berners-Lee, T. (1989). <em>Information Management: A Proposal</em>. CERN.
           </li>
-
           <li>
-            Thomson, M., & Bishop, M. (2022). <em>RFC 9114: HTTP/3.</em> IETF.  
-            Retrieved from https://www.rfc-editor.org/
+            Fielding, R., et al. (1999). <em>RFC 2616: Hypertext Transfer Protocol — HTTP/1.1</em>. IETF.
           </li>
-
-          <!-- Educational sources -->
           <li>
-            Mozilla Developer Network (MDN). (n.d.). <em>HTTP overview.</em>  
-            Retrieved from https://developer.mozilla.org/
+            Belshe, M., Peon, R., & Thomson, M. (2015). <em>RFC 7540: HTTP/2</em>. IETF.
           </li>
-
           <li>
-            Cloudflare. (n.d.). <em>What is HTTP/2? What is HTTP/3?</em>  
-            Retrieved from https://www.cloudflare.com/learning/
+            Bishop, M. (2022). <em>RFC 9114: HTTP/3</em>. IETF.
           </li>
-
           <li>
-            Berners-Lee, T. (1989). <em>Information Management: A Proposal.</em> CERN.  
-            (Historical source for the creation of the Web)
+            MDN Web Docs. <a href="https://developer.mozilla.org" target="_blank" rel="noopener">https://developer.mozilla.org/</a>
           </li>
-
           <li>
-            Akamai Technologies. (n.d.). <em>QUIC protocol overview.</em>  
-            Retrieved from https://www.akamai.com/
+            Cloudflare blog: state of HTTP/3 (example articles & guides). <a href="https://blog.cloudflare.com" target="_blank" rel="noopener">blog.cloudflare.com</a>
           </li>
+        </ol>
 
+        <h2>Additional learning resources</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview" target="_blank" rel="noopener">MDN — HTTP Overview</a></li>
+          <li><a href="https://w3c.github.io" target="_blank" rel="noopener">W3C — Web standards</a></li>
+          <li><a href="https://ksuweb.github.io/IT3203/" target="_blank" rel="noopener">IT3203 course page</a></li>
         </ul>
-
-        <div class="info-box">
-          References include RFC specifications, web documentation, and educational resources
-          used to build accurate historical and technical explanations across this site.
-        </div>
       </section>
-
     </main>
 
-
-    <!-- ==========================================
-         FOOTER
-    =========================================== -->
-    <footer class="site-footer fade-in">
+    <footer class="site-footer">
       <div class="small">© Edric Huang — IT 3203</div>
-      <div class="small">Class Project — Introduction to Web Development</div>
+      <div class="small">
+        This is a class project for IT 3203 — <a href="https://ksuweb.github.io/IT3203/" target="_blank" rel="noopener">ksuweb.github.io/IT3203/</a>
+      </div>
     </footer>
-
   </div>
 </body>
-
 </html>
