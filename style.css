@@ -1,119 +1,136 @@
 /* ============================================================
-   style.css
+   style.css — FULLY REWORKED + COMMENTED
    Author: Edric Huang
    Course: IT 3203 — Intro to Web Development
-   Milestone 2 — Fully Commented Stylesheet
+   Milestone 2 — Clean, Modern, Responsive Design
 
-   This stylesheet defines the visual theme for the entire site,
-   including layout, navigation, typography, animations, and 
-   responsive behavior. The blue/white color palette provides 
-   a clean, modern look, and Flex/Grid are used for structure.
+   This stylesheet defines the entire look-and-feel of the site.
+   Includes:
+   • Global reset
+   • Layout and typography
+   • Navigation bar
+   • Responsive container
+   • Section badges, info-boxes
+   • Animations
+   • Grid for Key Concepts
+   • Table styling
+   • Footer styling
    ============================================================ */
 
 
-/* ---------- Basic Reset & Global Settings ---------- */
-/* Ensures consistent padding, margins, and sizing across browsers */
+/* ============================================================
+   1. GLOBAL RESET & BASE SETTINGS
+   ============================================================ */
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif; /* Clean modern fonts */
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f5f8ff;       /* Site-wide light blue background */
+  color: #1a1a1a;            /* Standard text color */
   line-height: 1.6;
-  background: #f5f8ff;     /* Light blue page background */
-  color: #1a1a1a;          /* Default text color */
   min-height: 100%;
 }
 
 
-/* ---------- Main Page Container ---------- */
-/* Centers page content with a card-like design */
+/* ============================================================
+   2. MAIN PAGE CONTAINER
+   ============================================================ */
+
 .container {
-  width: min(900px, 92%);                 /* Scales well on small monitors */
+  width: min(900px, 92%);
   margin: 40px auto;
+  padding: 32px;
   background: #ffffff;
   border: 1px solid #e0e6f0;
   border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06); /* Soft shadow */
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
 
 
-/* ---------- Header Section ---------- */
+/* ============================================================
+   3. HEADER SECTION
+   ============================================================ */
+
 #main-header {
+  text-align: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #d9e4ff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   gap: 10px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #d9e4ff; /* Subtle divider line */
 }
 
 #main-header h1 {
   font-size: 1.7rem;
-  color: #0b63b8; /* Primary blue heading color */
+  color: #0b63b8;
 }
 
 #main-header p {
-  color: #4b5563;
   font-size: 0.95rem;
+  color: #4b5563;
 }
 
 
-/* ---------- Navigation Bar ---------- */
+/* ============================================================
+   4. NAVIGATION BAR
+   ============================================================ */
+
 nav {
-  width: 100%;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
-  margin-top: 8px;
 }
 
 nav ul {
+  list-style: none;
   display: flex;
   gap: 14px;
-  list-style: none;
   padding: 8px 14px;
+  background: #eaf1ff;
   border-radius: 8px;
-  background: #eaf1ff; /* Blue-tinted menu background */
 }
 
 nav a {
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 6px;
-  color: #0b63b8;
   font-weight: 600;
-  transition: all 0.2s ease;   /* Smooth hover animation */
+  color: #0b63b8;
+  transition: 0.2s ease;
   border: 1px solid transparent;
 }
 
-/* Hover Effects for Navigation */
 nav a:hover,
 nav a:focus {
   background: #d3e2ff;
-  color: #084c8e;
   border-color: #bfd3ff;
-  transform: translateY(-1px); /* Lift effect */
+  color: #084c8e;
+  transform: translateY(-1px);
 }
 
 
-/* ---------- Main Content Layout ---------- */
+/* ============================================================
+   5. MAIN CONTENT LAYOUT
+   ============================================================ */
+
 main.article {
-  margin-top: 22px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
+  margin-top: 25px;
 }
 
 h2 {
-  font-size: 1.3rem;
   color: #0b4da0;
-  margin-bottom: 8px;
-  border-bottom: 2px solid #d9e4ff; /* Section underline */
+  font-size: 1.3rem;
+  margin-bottom: 10px;
   padding-bottom: 6px;
+  border-bottom: 2px solid #d9e4ff;
 }
 
 p {
@@ -121,102 +138,138 @@ p {
 }
 
 
-/* ---------- Image Containers ---------- */
+/* ============================================================
+   6. IMAGE CONTAINER STYLING
+   ============================================================ */
+
 .figure {
-  display: block;
   width: 100%;
-  border-radius: 10px;
-  border: 1px dashed #b8c8e8;
-  padding: 14px;
-  background: #f8faff;
   text-align: center;
-  color: #64748b;  /* Placeholder caption color */
+  padding: 14px;
+  border-radius: 10px;
+  background: #f8faff;
+  border: 1px dashed #b8c8e8;
+  color: #64748b;
 }
 
 
-/* ---------- Key Concepts Grid ---------- */
+/* ============================================================
+   7. KEY CONCEPTS GRID
+   ============================================================ */
+
 .concepts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Auto responsive */
   gap: 14px;
   margin-top: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .concept-card {
-  border: 1px solid #dbe4f8;
-  border-radius: 8px;
   padding: 14px;
   background: linear-gradient(180deg, #ffffff, #f3f7ff);
+  border: 1px solid #dbe4f8;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);
 }
 
+/* --------------------------------------------
+   Remove bullets *only* inside Key Concepts cards
+--------------------------------------------- */
+.concept-card ul,
+.concept-card li {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
 
-/* ---------- Tables ---------- */
+
+/* ============================================================
+   8. NORMAL LIST STYLE (APPLIES TO ALL OTHER PAGES)
+   ============================================================ */
+
+main ul,
+main li {
+  list-style-position: inside;
+  padding-left: 0.5rem;
+}
+
+
+/* ============================================================
+   9. TABLE STYLING
+   ============================================================ */
+
 table {
   width: 100%;
-  border-collapse: collapse; /* Removes double borders */
-  margin-top: 10px;
+  border-collapse: collapse;
+  margin-top: 12px;
   font-size: 0.95rem;
 }
 
 th, td {
   border: 1px solid #e0e6f0;
   padding: 8px 10px;
-  text-align: left;
 }
 
 th {
-  background: #eaf1ff; /* Blue header background */
+  background: #eaf1ff;
   color: #0b4da0;
 }
 
 
-/* ---------- Footer ---------- */
-footer.site-footer {
-  margin-top: 26px;
-  padding-top: 14px;
+/* ============================================================
+   10. FOOTER STYLING
+   ============================================================ */
+
+.site-footer {
+  margin-top: 30px;
+  padding-top: 15px;
   border-top: 2px solid #d9e4ff;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #475569;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  text-align: center;
-  color: #475569;
-  font-size: 0.9rem;
 }
 
-footer a {
+.site-footer a {
   color: #0b63b8;
   text-decoration: none;
 }
 
-footer a:hover {
+.site-footer a:hover {
   text-decoration: underline;
   color: #084c8e;
 }
 
 
-/* ---------- Utility Classes ---------- */
-/* Smaller gray text used throughout the site */
+/* ============================================================
+   11. UTILITY CLASSES
+   ============================================================ */
+
 .small {
   font-size: 0.9rem;
   color: #6b7280;
 }
 
-/* Rounded label used for categories or section markers */
-.badge, .section-badge {
+/* Reusable badge styles */
+.badge,
+.section-badge {
   display: inline-block;
-  padding: 4px 8px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #084c8e;
   border-radius: 999px;
   background: #dbe7ff;
-  color: #084c8e;
-  font-weight: 600;
-  font-size: 0.85rem;
   margin-bottom: 8px;
 }
 
 
-/* ---------- Info Box ---------- */
-/* Highlight box used for notes, definitions, or important info */
+/* ============================================================
+   12. INFO BOX
+   ============================================================ */
+
 .info-box {
   background: #eef5ff;
   border-left: 5px solid #0b63b8;
@@ -227,10 +280,13 @@ footer a:hover {
 }
 
 
-/* ---------- Fade-In Animation ---------- */
+/* ============================================================
+   13. FADE-IN ANIMATION
+   ============================================================ */
+
 .fade-in {
-  animation: fadeIn 0.6s ease forwards;
   opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -238,21 +294,25 @@ footer a:hover {
 }
 
 
-/* ---------- Soft Card Style ---------- */
+/* ============================================================
+   14. CARD EFFECT UTILITY
+   ============================================================ */
+
 .card-effect {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
-  padding: 16px;
   background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 
-/* ---------- Responsive Design Tweaks ---------- */
-/* For mid-sized mobile screens */
-@media (max-width: 600px) {
+/* ============================================================
+   15. RESPONSIVE DESIGN
+   ============================================================ */
 
+@media (max-width: 600px) {
   nav ul {
-    flex-direction: column; /* Stack vertically */
+    flex-direction: column;
     gap: 6px;
     padding: 10px;
   }
@@ -275,12 +335,9 @@ footer a:hover {
   }
 }
 
-
-/* Additional small tweak for very small screens */
 @media (max-width: 520px) {
   nav ul {
     flex-wrap: wrap;
   }
 }
-
 
