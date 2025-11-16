@@ -1,22 +1,8 @@
 /* ============================================================
-   style.css — FULLY REWORKED + COMMENTED
+   style.css — Rework
    Author: Edric Huang
    Course: IT 3203 — Intro to Web Development
    Milestone 2 — Clean, Modern, Responsive Design
-
-   This stylesheet defines the entire look-and-feel of the site.
-   Includes:
-   • Global reset
-   • Layout and typography
-   • Navigation bar
-   • Responsive container
-   • Section badges, info-boxes
-   • Animations
-   • Grid for Key Concepts
-   • Table styling
-   • Footer styling
-   ============================================================ */
-
 
 /* ============================================================
    1. GLOBAL RESET & BASE SETTINGS
@@ -340,4 +326,5 @@ th {
     flex-wrap: wrap;
   }
 }
+
 
