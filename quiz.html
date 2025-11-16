@@ -1,20 +1,14 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
   <title>HTTP Quiz — Self Assessment</title>
-
-  <!-- Link to global CSS file -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Quiz-specific CSS (kept inside this page for convenience). -->
   <style>
-    /* -----------------------
-       QUIZ PAGE STYLING
-       (Uses your blue/white theme)
-    ----------------------- */
+    /* QUIZ-SPECIFIC ADDITIONS (kept separate for clarity) */
 
     .quiz-container {
       margin-top: 25px;
@@ -31,34 +25,37 @@
     }
 
     .question-box h3 {
-      color: #0b63b8;
       margin-bottom: 10px;
+      color: #0b63b8;
     }
 
-    /* Results box hidden until quiz is submitted */
     .result-box {
       margin-top: 25px;
       padding: 18px;
       border-radius: 8px;
-      display: none;
+      display: none; /* Hidden until quiz submitted */
     }
 
-    .correct { color: #0c7a26; font-weight: 600; }
-    .incorrect { color: #b10e0e; font-weight: 600; }
+    .correct {
+      color: #0c7a26;
+      font-weight: 600;
+    }
 
-    /* Green = pass */
+    .incorrect {
+      color: #b10e0e;
+      font-weight: 600;
+    }
+
     .score-pass {
       background: #e7f8ea;
       border: 2px solid #8ed39e;
     }
 
-    /* Red = fail */
     .score-fail {
       background: #fdeaea;
       border: 2px solid #e7a1a1;
     }
 
-    /* Buttons */
     .btn {
       padding: 10px 16px;
       background: #0b63b8;
@@ -69,13 +66,13 @@
       cursor: pointer;
       transition: 0.2s ease;
       margin-top: 10px;
+      width: fit-content;
     }
 
     .btn:hover {
       background: #084c8e;
     }
 
-    /* Feedback text below each question */
     .answer-feedback {
       margin-top: 6px;
       font-size: 0.95rem;
@@ -86,14 +83,12 @@
 <body>
   <div class="container">
 
-    <!-- =============================
-         PAGE HEADER + NAVIGATION
-    ============================== -->
+    <!-- HEADER -->
     <header id="main-header">
-      <h1>HTTP Self-Assessment Quiz</h1>
-      <p class="small">Test your understanding of HTTP, HTTPS, and modern protocol versions</p>
+      <h1 class="fade-in">HTTP Self-Assessment Quiz</h1>
+      <p class="small fade-in">Test your understanding of HTTP, HTTPS, and modern protocol versions</p>
 
-      <nav aria-label="Main navigation">
+      <nav aria-label="Main site navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="history.html">History</a></li>
@@ -106,119 +101,84 @@
       </nav>
     </header>
 
+    <!-- INTRO -->
+    <main class="article fade-in">
+      <span class="section-badge">Interactive Quiz</span>
+      <h2>Check Your Knowledge</h2>
 
-    <!-- =============================
-         MAIN QUIZ CONTENT
-    ============================== -->
-    <main class="quiz-container">
+      <div class="info-box fade-in">
+        Answer the questions below to test your understanding of HTTP versions, HTTPS security, 
+        and modern features like multiplexing and QUIC. Your score will appear at the bottom.
+      </div>
+    </main>
 
-      <!-- Q1 – Fill-in-the-blank -->
+    <!-- QUIZ BODY -->
+    <main class="quiz-container fade-in">
+
+      <!-- Q1 -->
       <div class="question-box">
         <h3>1. Fill in the blank:</h3>
-        <p>
-          HTTP is an __________-layer protocol that follows a request–response communication model.
-        </p>
-        <!-- STUDENT ENTERS ANSWER -->
-        <input type="text" id="q1" placeholder="Type your answer here..." />
+        <p>HTTP is a ______-layer protocol that uses a request–response model.</p>
+        <input type="text" id="q1" placeholder="Your answer here..." />
       </div>
 
-
-      <!-- Q2 – MCQ -->
+      <!-- Q2 -->
       <div class="question-box">
-        <h3>2. Which method was the *only* method supported in HTTP/0.9?</h3>
-
-        <!-- Radio buttons: only one choice allowed -->
+        <h3>2. Which method was the only method supported in HTTP/0.9?</h3>
         <label><input type="radio" name="q2" value="GET"> GET</label><br>
         <label><input type="radio" name="q2" value="POST"> POST</label><br>
-        <label><input type="radio" name="q2" value="PUT"> PUT</label><br>
-        <label><input type="radio" name="q2" value="OPTIONS"> OPTIONS</label>
+        <label><input type="radio" name="q2" value="HEAD"> HEAD</label>
       </div>
 
-
-      <!-- Q3 – MCQ -->
+      <!-- Q3 -->
       <div class="question-box">
-        <h3>3. What major performance feature was introduced with HTTP/1.1?</h3>
-
-        <label>
-          <input type="radio" name="q3" value="Persistent Connections">
-          Persistent connections
-        </label><br>
-
-        <label>
-          <input type="radio" name="q3" value="Binary Framing">
-          Binary framing
-        </label><br>
-
-        <label>
-          <input type="radio" name="q3" value="UDP Transport">
-          UDP-based transport
-        </label><br>
-
-        <label>
-          <input type="radio" name="q3" value="Integrated TLS">
-          TLS built directly into the transport layer
-        </label>
+        <h3>3. What major improvement did HTTP/1.1 introduce?</h3>
+        <label><input type="radio" name="q3" value="Persistent Connections"> Persistent connections</label><br>
+        <label><input type="radio" name="q3" value="Server Push"> Server push</label><br>
+        <label><input type="radio" name="q3" value="Binary Framing"> Binary framing</label>
       </div>
 
-
-      <!-- Q4 – MCQ -->
+      <!-- Q4 -->
       <div class="question-box">
-        <h3>4. Which protocol provides encryption for HTTPS?</h3>
-
+        <h3>4. What protocol is used to secure HTTPS?</h3>
         <label><input type="radio" name="q4" value="TLS"> TLS</label><br>
         <label><input type="radio" name="q4" value="SSH"> SSH</label><br>
-        <label><input type="radio" name="q4" value="IPSec"> IPSec</label><br>
-        <label><input type="radio" name="q4" value="FTP"> FTP</label>
+        <label><input type="radio" name="q4" value="SFTP"> SFTP</label>
       </div>
 
-
-      <!-- Q5 – Multi-select -->
+      <!-- Q5 -->
       <div class="question-box">
-        <h3>5. Which of the following features belong to HTTP/2? (Select two)</h3>
-
-        <!-- CHECKBOXES allow multiple selections -->
+        <h3>5. Which of the following features belong to HTTP/2? (Choose two)</h3>
         <label><input type="checkbox" id="q5a" value="Multiplexing"> Multiplexing</label><br>
         <label><input type="checkbox" id="q5b" value="Server Push"> Server Push</label><br>
-        <label><input type="checkbox" id="q5c" value="UDP Transport"> UDP transport</label><br>
-        <label><input type="checkbox" id="q5d" value="Chunked Transfer Only"> Only chunked transfer</label>
+        <label><input type="checkbox" id="q5c" value="UDP Transport"> UDP Transport</label><br>
+        <label><input type="checkbox" id="q5d" value="Chunked Transfer Only"> Chunked transfer only</label>
       </div>
 
-
-      <!-- SUBMIT + RESET buttons -->
+      <!-- BUTTONS -->
       <button class="btn" onclick="gradeQuiz()">Submit Quiz</button>
       <button class="btn" onclick="resetQuiz()" style="background:#666;">Reset Quiz</button>
 
-
-      <!-- RESULTS will appear here -->
-      <div id="results" class="result-box"></div>
+      <!-- RESULTS -->
+      <div id="results" class="result-box fade-in"></div>
 
     </main>
 
-
-    <!-- =============================
-         FOOTER
-    ============================== -->
-    <footer class="site-footer">
+    <!-- FOOTER -->
+    <footer class="site-footer fade-in">
       <div class="small">© Edric Huang — IT 3203</div>
       <div class="small">
-        Class project for IT 3203 —
-        <a href="https://ksuweb.github.io/IT3203/" target="_blank">ksuweb.github.io/IT3203/</a>
+        Class Project — Introduction to Web Development
       </div>
     </footer>
+
   </div>
 
-
-
-  <!-- =============================
-       JAVASCRIPT FOR QUIZ LOGIC
-       Fully commented for Milestone 2
-  ============================== -->
+  <!-- JAVASCRIPT -->
   <script>
-
-    /* ----------------------------------------
-       Correct Answers Object
-       (Easier to maintain and update later)
-    ----------------------------------------- */
+    /* -----------------------
+       QUIZ ANSWERS
+    ----------------------- */
     const answers = {
       q1: "application",
       q2: "GET",
@@ -227,85 +187,63 @@
       q5: ["Multiplexing", "Server Push"]
     };
 
-
-    /* ----------------------------------------
-       gradeQuiz()
-       Evaluates all answers and calculates score
-    ----------------------------------------- */
+    /* -----------------------
+       GRADE QUIZ
+    ----------------------- */
     function gradeQuiz() {
       let score = 0;
       let feedbackHTML = "<h2>Quiz Results</h2>";
 
-      /* ---- Q1: Fill-in-the-blank ---- */
+      /* Q1 */
       const q1 = document.getElementById("q1").value.trim().toLowerCase();
-      if (q1 === answers.q1) {
-        score++;
-        feedbackHTML += success("1");
-      } else {
-        feedbackHTML += fail("1", answers.q1);
-      }
+      if (q1 === answers.q1) { score++; feedbackHTML += success("1"); }
+      else { feedbackHTML += fail("1", "application"); }
 
-      /* ---- Q2: Single choice ---- */
+      /* Q2 */
       const q2 = document.querySelector("input[name='q2']:checked");
-      if (q2 && q2.value === answers.q2) {
-        score++;
-        feedbackHTML += success("2");
-      } else {
-        feedbackHTML += fail("2", answers.q2);
-      }
+      if (q2 && q2.value === answers.q2) { score++; feedbackHTML += success("2"); }
+      else { feedbackHTML += fail("2", "GET"); }
 
-      /* ---- Q3 ---- */
+      /* Q3 */
       const q3 = document.querySelector("input[name='q3']:checked");
-      if (q3 && q3.value === answers.q3) {
-        score++;
-        feedbackHTML += success("3");
-      } else {
-        feedbackHTML += fail("3", answers.q3);
-      }
+      if (q3 && q3.value === answers.q3) { score++; feedbackHTML += success("3"); }
+      else { feedbackHTML += fail("3", "Persistent connections"); }
 
-      /* ---- Q4 ---- */
+      /* Q4 */
       const q4 = document.querySelector("input[name='q4']:checked");
-      if (q4 && q4.value === answers.q4) {
-        score++;
-        feedbackHTML += success("4");
-      } else {
-        feedbackHTML += fail("4", answers.q4);
-      }
+      if (q4 && q4.value === answers.q4) { score++; feedbackHTML += success("4"); }
+      else { feedbackHTML += fail("4", "TLS"); }
 
-      /* ---- Q5: Multi-select ---- */
+      /* Q5 */
       let q5Correct = 0;
       if (document.getElementById("q5a").checked) q5Correct++;
       if (document.getElementById("q5b").checked) q5Correct++;
 
-      const q5Wrong =
-        document.getElementById("q5c").checked ||
-        document.getElementById("q5d").checked;
-
-      if (q5Correct === 2 && !q5Wrong) {
+      if (q5Correct === 2 &&
+        !document.getElementById("q5c").checked &&
+        !document.getElementById("q5d").checked) {
         score++;
         feedbackHTML += success("5");
       } else {
-        feedbackHTML += fail("5", "Multiplexing + Server Push");
+        feedbackHTML += fail("5", "Multiplexing, Server Push");
       }
 
-      /* ---- Final Pass/Fail ---- */
-      const passed = score >= 3;
+      const isPass = score >= 3;
       const resultsBox = document.getElementById("results");
-
       resultsBox.style.display = "block";
-      resultsBox.className = "result-box " + (passed ? "score-pass" : "score-fail");
+      resultsBox.className = "result-box " + (isPass ? "score-pass" : "score-fail");
 
-      resultsBox.innerHTML =
+      feedbackHTML =
         `<p><strong>Final Score: ${score}/5</strong></p>` +
-        `<p><strong>Result: ${passed ? "PASS" : "FAIL"}</strong></p>` +
-        "<hr>" +
-        feedbackHTML;
+        `<p><strong>Result: ${isPass ? "PASS" : "FAIL"}</strong></p>` +
+        "<hr>" + feedbackHTML;
+
+      resultsBox.innerHTML = feedbackHTML;
     }
 
-
-    /* ----------------------------------------
-       Result helpers (creates feedback text)
-    ----------------------------------------- */
+    /* -----------------------
+       HELPERS
+    ----------------------- */
     function success(qNum) {
       return `<p class="answer-feedback correct">Question ${qNum}: Correct ✓</p>`;
     }
@@ -314,30 +252,24 @@
       return `<p class="answer-feedback incorrect">Question ${qNum}: Incorrect ✗ — Correct answer: ${correctAnswer}</p>`;
     }
 
-
-    /* ----------------------------------------
-       resetQuiz()
-       Clears inputs and hides results
-    ----------------------------------------- */
+    /* -----------------------
+       RESET
+    ----------------------- */
     function resetQuiz() {
       document.querySelectorAll("input").forEach(input => {
-        if (input.type === "checkbox" || input.type === "radio") {
+        if (input.type === "radio" || input.type === "checkbox") {
           input.checked = false;
         } else {
           input.value = "";
         }
       });
 
-      const results = document.getElementById("results");
-      results.style.display = "none";
-      results.innerHTML = "";
+      const resultsBox = document.getElementById("results");
+      resultsBox.style.display = "none";
+      resultsBox.innerHTML = "";
     }
-
   </script>
 
 </body>
-</html>
 
 </html>
-
-
