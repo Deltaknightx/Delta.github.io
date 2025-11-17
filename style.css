@@ -2,7 +2,7 @@
    style.css — Rework
    Author: Edric Huang
    Course: IT 3203 — Intro to Web Development
-   Milestone 2 — Clean, Modern, Responsive Design
+   Milestone 2 
 
 /* ============================================================
    1. GLOBAL RESET & BASE SETTINGS
@@ -326,5 +326,6 @@ th {
     flex-wrap: wrap;
   }
 }
+
 
 
