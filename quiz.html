@@ -1,76 +1,260 @@
-/* quiz.js
-   Externalized quiz logic for Milestone 3
-   Keep this file in the same folder as quiz.html
-*/
+<!doctype html>
+<html lang="en">
 
-const answers = {
-  q1: "application",
-  q2: "GET",
-  q3: "Persistent Connections",
-  q4: "TLS",
-  q5: ["Multiplexing", "Server Push"]
-};
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-function gradeQuiz() {
-  let score = 0;
-  let feedbackHTML = "<h2>Quiz Results</h2>";
+  <title>HTTP Quiz — Self Assessment</title>
 
-  // Q1 - fill in
-  const q1 = document.getElementById("q1").value.trim().toLowerCase();
-  if (q1 === answers.q1) { score++; feedbackHTML += success("1"); }
-  else { feedbackHTML += fail("1", answers.q1); }
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="style.css">
 
-  // Q2 - radio
-  const q2 = document.querySelector("input[name='q2']:checked");
-  if (q2 && q2.value === answers.q2) { score++; feedbackHTML += success("2"); }
-  else { feedbackHTML += fail("2", answers.q2); }
+  <!-- Quiz-specific styling -->
+  <style>
+    .quiz-container {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
 
-  // Q3 - radio
-  const q3 = document.querySelector("input[name='q3']:checked");
-  if (q3 && q3.value === answers.q3) { score++; feedbackHTML += success("3"); }
-  else { feedbackHTML += fail("3", answers.q3); }
+    .question-box {
+      border: 1px solid #d9e4ff;
+      padding: 18px;
+      background: #ffffff;
+      border-radius: 10px;
+    }
 
-  // Q4 - radio
-  const q4 = document.querySelector("input[name='q4']:checked");
-  if (q4 && q4.value === answers.q4) { score++; feedbackHTML += success("4"); }
-  else { feedbackHTML += fail("4", answers.q4); }
+    .question-box h3 {
+      color: #0b63b8;
+      margin-bottom: 10px;
+    }
 
-  // Q5 - checkboxes
-  let q5Correct = 0;
-  if (document.getElementById("q5a").checked) q5Correct++;
-  if (document.getElementById("q5b").checked) q5Correct++;
-  const q5Wrong = document.getElementById("q5c").checked || document.getElementById("q5d").checked;
+    .result-box {
+      margin-top: 25px;
+      padding: 18px;
+      border-radius: 8px;
+      display: none;
+    }
 
-  if (q5Correct === 2 && !q5Wrong) { score++; feedbackHTML += success("5"); }
-  else { feedbackHTML += fail("5", "Multiplexing + Server Push"); }
+    .correct { color: #0c7a26; font-weight: 600; }
+    .incorrect { color: #b10e0e; font-weight: 600; }
 
-  const passed = score >= 3;
-  const resultsBox = document.getElementById("results");
-  resultsBox.style.display = "block";
-  resultsBox.className = "result-box " + (passed ? "score-pass" : "score-fail");
+    .score-pass {
+      background: #e7f8ea;
+      border: 2px solid #8ed39e;
+    }
 
-  resultsBox.innerHTML =
-    `<p><strong>Final Score: ${score}/5</strong></p>` +
-    `<p><strong>Result: ${passed ? "PASS" : "FAIL"}</strong></p>` +
-    "<hr>" + feedbackHTML;
-}
+    .score-fail {
+      background: #fdeaea;
+      border: 2px solid #e7a1a1;
+    }
 
-// small helper functions
-function success(qNum) {
-  return `<p class="answer-feedback correct">Question ${qNum}: Correct ✓</p>`;
-}
+    .btn {
+      padding: 10px 16px;
+      background: #0b63b8;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+      margin-top: 10px;
+    }
 
-function fail(qNum, correctAnswer) {
-  return `<p class="answer-feedback incorrect">Question ${qNum}: Incorrect ✗ — Correct answer: ${correctAnswer}</p>`;
-}
+    .btn:hover {
+      background: #084c8e;
+    }
 
-// reset function
-function resetQuiz() {
-  document.querySelectorAll("input").forEach(input => {
-    if (input.type === "radio" || input.type === "checkbox") input.checked = false;
-    else input.value = "";
-  });
-  const results = document.getElementById("results");
-  results.style.display = "none";
-  results.innerHTML = "";
-}
+    .answer-feedback {
+      margin-top: 6px;
+      font-size: 0.95rem;
+    }
+
+    /* Responsive quiz layout */
+    @media (max-width: 600px) {
+      .question-box {
+        padding: 14px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header id="main-header">
+      <h1>HTTP Self-Assessment Quiz</h1>
+      <p class="small">Test your understanding of HTTP, HTTPS, and modern protocol versions</p>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="modern.html">Modern HTTP</a></li>
+          <li><a href="concepts.html">Key Concepts</a></li>
+          <li><a href="references.html">References</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+    </header>
+
+
+    <!-- MAIN QUIZ STRUCTURE -->
+    <main class="quiz-container">
+
+      <!-- Question 1 -->
+      <div class="question-box">
+        <h3>1. Fill in the blank:</h3>
+        <p>HTTP is an __________-layer protocol that follows a request–response communication model.</p>
+        <input type="text" id="q1" placeholder="Type your answer here..." />
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question-box">
+        <h3>2. Which method was the *only* method supported in HTTP/0.9?</h3>
+
+        <label><input type="radio" name="q2" value="GET"> GET</label><br>
+        <label><input type="radio" name="q2" value="POST"> POST</label><br>
+        <label><input type="radio" name="q2" value="PUT"> PUT</label><br>
+        <label><input type="radio" name="q2" value="OPTIONS"> OPTIONS</label>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question-box">
+        <h3>3. What major performance feature was introduced with HTTP/1.1?</h3>
+
+        <label><input type="radio" name="q3" value="Persistent Connections"> Persistent connections</label><br>
+        <label><input type="radio" name="q3" value="Binary Framing"> Binary framing</label><br>
+        <label><input type="radio" name="q3" value="UDP Transport"> UDP-based transport</label><br>
+        <label><input type="radio" name="q3" value="Integrated TLS"> TLS built into the transport layer</label>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question-box">
+        <h3>4. Which protocol provides encryption for HTTPS?</h3>
+
+        <label><input type="radio" name="q4" value="TLS"> TLS</label><br>
+        <label><input type="radio" name="q4" value="SSH"> SSH</label><br>
+        <label><input type="radio" name="q4" value="IPSec"> IPSec</label><br>
+        <label><input type="radio" name="q4" value="FTP"> FTP</label>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question-box">
+        <h3>5. Which of the following features belong to HTTP/2? (Select two)</h3>
+
+        <label><input type="checkbox" id="q5a" value="Multiplexing"> Multiplexing</label><br>
+        <label><input type="checkbox" id="q5b" value="Server Push"> Server Push</label><br>
+        <label><input type="checkbox" id="q5c" value="UDP Transport"> UDP transport</label><br>
+        <label><input type="checkbox" id="q5d" value="Chunked Transfer Only"> Chunked transfer only</label>
+      </div>
+
+      <!-- Buttons -->
+      <button class="btn" onclick="gradeQuiz()">Submit Quiz</button>
+      <button class="btn" onclick="resetQuiz()" style="background:#666;">Reset Quiz</button>
+
+      <!-- Results -->
+      <div id="results" class="result-box"></div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="small">© Edric Huang — IT 3203</div>
+      <div class="small">
+        Class project for IT 3203 — 
+        <a href="https://ksuweb.github.io/IT3203/" target="_blank">ksuweb.github.io/IT3203/</a>
+      </div>
+    </footer>
+
+  </div>
+
+
+
+  <!-- JAVASCRIPT QUIZ LOGIC -->
+  <script>
+    const answers = {
+      q1: "application",
+      q2: "GET",
+      q3: "Persistent Connections",
+      q4: "TLS",
+      q5: ["Multiplexing", "Server Push"]
+    };
+
+    function gradeQuiz() {
+      let score = 0;
+      let feedbackHTML = "<h2>Quiz Results</h2>";
+
+      const q1 = document.getElementById("q1").value.trim().toLowerCase();
+      if (q1 === answers.q1) {
+        score++; feedbackHTML += success("1");
+      } else feedbackHTML += fail("1", answers.q1);
+
+      const q2 = document.querySelector("input[name='q2']:checked");
+      if (q2 && q2.value === answers.q2) {
+        score++; feedbackHTML += success("2");
+      } else feedbackHTML += fail("2", answers.q2);
+
+      const q3 = document.querySelector("input[name='q3']:checked");
+      if (q3 && q3.value === answers.q3) {
+        score++; feedbackHTML += success("3");
+      } else feedbackHTML += fail("3", answers.q3);
+
+      const q4 = document.querySelector("input[name='q4']:checked");
+      if (q4 && q4.value === answers.q4) {
+        score++; feedbackHTML += success("4");
+      } else feedbackHTML += fail("4", answers.q4);
+
+      let q5Correct = 0;
+      if (document.getElementById("q5a").checked) q5Correct++;
+      if (document.getElementById("q5b").checked) q5Correct++;
+      let q5Wrong = document.getElementById("q5c").checked || document.getElementById("q5d").checked;
+
+      if (q5Correct === 2 && !q5Wrong) {
+        score++; feedbackHTML += success("5");
+      } else feedbackHTML += fail("5", "Multiplexing + Server Push");
+
+      const passed = score >= 3;
+      const resultsBox = document.getElementById("results");
+
+      resultsBox.style.display = "block";
+      resultsBox.className = "result-box " + (passed ? "score-pass" : "score-fail");
+
+      resultsBox.innerHTML =
+        `<p><strong>Final Score: ${score}/5</strong></p>` +
+        `<p><strong>Result: ${passed ? "PASS" : "FAIL"}</strong></p>` +
+        "<hr>" +
+        feedbackHTML;
+    }
+
+    function success(qNum) {
+      return `<p class="answer-feedback correct">Question ${qNum}: Correct ✓</p>`;
+    }
+
+    function fail(qNum, correctAnswer) {
+      return `<p class="answer-feedback incorrect">Question ${qNum}: Incorrect ✗ — Correct answer: ${correctAnswer}</p>`;
+    }
+
+    function resetQuiz() {
+      document.querySelectorAll("input").forEach(input => {
+        if (input.type === "checkbox" || input.type === "radio") input.checked = false;
+        else input.value = "";
+      });
+
+      const results = document.getElementById("results");
+      results.style.display = "none";
+      results.innerHTML = "";
+    }
+  </script>
+
+</body>
+</html>
