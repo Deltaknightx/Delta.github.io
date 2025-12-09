@@ -3,29 +3,19 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!--
-    modern.html
-    Milestone 3 Update:
-    This page explains modern HTTP versions and introduces the
-    new comparison table required in this milestone.
-    The table follows responsive design rules and adapts to
-    small screens by enabling horizontal scrolling.
-  -->
-
-  <title>Modern HTTP</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modern HTTP — HTTP/2 & HTTP/3</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="container">
 
-    <!-- HEADER + NAVIGATION (Shared Across Site) -->
-    <header>
-      <h1 class="fade-in">Modern HTTP Protocols</h1>
+    <header id="main-header">
+      <h1 class="fade-in">Modern HTTP: HTTP/2 & HTTP/3</h1>
+      <p class="small fade-in">Performance improvements and next-generation transport innovations</p>
 
-      <nav aria-label="Main navigation">
+      <nav aria-label="Main site navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="history.html">History</a></li>
@@ -40,71 +30,91 @@
 
     <main class="article">
 
-      <!-- ==============================
-           Modern HTTP Overview
-      =============================== -->
       <section class="fade-in">
-        <span class="section-badge">Overview</span>
-        <h2>How HTTP Evolved</h2>
-
+        <span class="section-badge">2015</span>
+        <h2>HTTP/2 — Faster Loading Through Multiplexing</h2>
         <p>
-          HTTP has transformed from a simple request–response system into a
-          highly optimized set of protocols designed for speed, efficiency,
-          parallelism, and secure communication.
+          Standardized in 2015, HTTP/2 was designed to reduce latency and improve
+          loading performance by delivering multiple resources simultaneously.
         </p>
+
+        <ul>
+          <li><strong>Multiplexing:</strong> Multiple streams share one TCP connection</li>
+          <li><strong>Header Compression (HPACK):</strong> Reduces overhead</li>
+          <li><strong>Server Push:</strong> Sends assets early</li>
+          <li><strong>Binary Framing:</strong> More efficient processing</li>
+        </ul>
+
+        <div class="info-box">
+          HTTP/2 solves many HTTP/1.1 limitations but still suffers from TCP head-of-line blocking.
+        </div>
       </section>
 
-      <!-- ==============================
-           Comparison Table (Milestone 3)
-           Required responsive table
-      =============================== -->
+      <section class="fade-in">
+        <span class="section-badge">2022</span>
+        <h2>HTTP/3 — Powered by QUIC</h2>
+        <p>
+          HTTP/3 uses QUIC, a secure UDP-based transport layer optimized for reliability
+          and speed over modern networks.
+        </p>
+
+        <ul>
+          <li><strong>UDP-based:</strong> Avoids TCP blocking</li>
+          <li><strong>TLS 1.3 built in:</strong> Always encrypted</li>
+          <li><strong>0-RTT:</strong> Faster reconnections</li>
+          <li><strong>Mobile-friendly:</strong> Recovers quickly from packet loss</li>
+        </ul>
+
+        <div class="info-box">
+          QUIC helps modern websites load faster on mobile devices and unstable networks.
+        </div>
+      </section>
+
+      <!-- NEW REQUIRED TABLE -->
       <section class="fade-in">
         <span class="section-badge">Comparison</span>
         <h2>HTTP/1.1 vs HTTP/2 vs HTTP/3</h2>
 
-        <!--
-          Milestone 3 requirement:
-          Must include a table with useful information.
-          Table is styled in style.css and made responsive
-          using overflow handling.
-        -->
-        <div class="table-wrapper">
-          <table>
-            <tr>
-              <th>Feature</th>
-              <th>HTTP/1.1</th>
-              <th>HTTP/2</th>
-              <th>HTTP/3</th>
-            </tr>
-            <tr>
-              <td>Transport Protocol</td>
-              <td>TCP</td>
-              <td>TCP</td>
-              <td>QUIC (UDP)</td>
-            </tr>
-            <tr>
-              <td>Multiplexing</td>
-              <td>No</td>
-              <td>Yes</td>
-              <td>Yes</td>
-            </tr>
-            <tr>
-              <td>Header Compression</td>
-              <td>No</td>
-              <td>HPACK</td>
-              <td>QPACK</td>
-            </tr>
-          </table>
-        </div>
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>HTTP/1.1</th>
+            <th>HTTP/2</th>
+            <th>HTTP/3</th>
+          </tr>
+          <tr>
+            <td>Transport</td>
+            <td>TCP</td>
+            <td>TCP</td>
+            <td>QUIC (UDP)</td>
+          </tr>
+          <tr>
+            <td>Multiplexing</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Header Compression</td>
+            <td>No</td>
+            <td>HPACK</td>
+            <td>QPACK</td>
+          </tr>
+          <tr>
+            <td>Security</td>
+            <td>Optional</td>
+            <td>Recommended</td>
+            <td>Mandatory</td>
+          </tr>
+        </table>
       </section>
 
     </main>
 
-    <footer class="site-footer small fade-in">
-      © Edric Huang — IT 3203
+    <footer class="site-footer fade-in">
+      <div class="small">© Edric Huang — IT 3203</div>
+      <div class="small">Class Project — Introduction to Web Development</div>
     </footer>
-
   </div>
 </body>
-
 </html>
