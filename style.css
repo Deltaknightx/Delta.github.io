@@ -1,196 +1,345 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+/* ============================================================
+   style.css — FULLY REWORKED + COMMENTED
+   Author: Edric Huang
+   Course: IT 3203 — Intro to Web Development
+   Milestone 2 — Clean, Modern, Responsive Design
 
-  <title>HTTP Quiz — Self Assessment</title>
+   This stylesheet defines the entire look-and-feel of the site.
+   Includes:
+   • Global reset
+   • Layout and typography
+   • Navigation bar
+   • Responsive container
+   • Section badges, info-boxes
+   • Animations
+   • Grid for Key Concepts
+   • Table styling
+   • Footer styling
+   ============================================================ */
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="style.css">
 
-  <!-- Quiz-Specific Styling -->
-  <style>
-    .quiz-container {
-      margin-top: 25px;
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
+/* ============================================================
+   1. GLOBAL RESET & BASE SETTINGS
+   ============================================================ */
 
-    .question-box {
-      border: 1px solid #d9e4ff;
-      padding: 18px;
-      background: #ffffff;
-      border-radius: 10px;
-    }
-
-    .question-box h3 {
-      color: #0b63b8;
-      margin-bottom: 10px;
-    }
-
-    .result-box {
-      margin-top: 25px;
-      padding: 18px;
-      border-radius: 8px;
-      display: none;
-    }
-
-    .correct { color: #0c7a26; font-weight: 600; }
-    .incorrect { color: #b10e0e; font-weight: 600; }
-
-    .score-pass {
-      background: #e7f8ea;
-      border: 2px solid #8ed39e;
-    }
-
-    .score-fail {
-      background: #fdeaea;
-      border: 2px solid #e7a1a1;
-    }
-
-    .btn {
-      padding: 10px 16px;
-      background: #0b63b8;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s ease;
-      margin-top: 10px;
-    }
-
-    .btn:hover { background: #084c8e; }
-
-    .answer-feedback {
-      margin-top: 6px;
-      font-size: 0.95rem;
-    }
-
-    /* ---------- MOBILE FRIENDLY ---------- */
-    @media (max-width: 600px) {
-      input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        font-size: 1rem;
-      }
-
-      .question-box {
-        padding: 14px;
-      }
-
-      .btn {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-
-    <header id="main-header">
-      <h1 class="fade-in">HTTP Self-Assessment Quiz</h1>
-      <p class="small fade-in">Test your understanding of HTTP, HTTPS, and modern protocol versions</p>
-
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="history.html">History</a></li>
-          <li><a href="modern.html">Modern HTTP</a></li>
-          <li><a href="concepts.html">Key Concepts</a></li>
-          <li><a href="references.html">References</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main class="quiz-container">
-
-      <!-- Q1 -->
-      <div class="question-box fade-in">
-        <h3>1. Fill in the blank:</h3>
-        <p>HTTP is an __________-layer protocol that follows a request–response model.</p>
-        <input type="text" id="q1" placeholder="Type your answer..." />
-      </div>
-
-      <!-- Q2 -->
-      <div class="question-box fade-in">
-        <h3>2. Which method was the only method supported in HTTP/0.9?</h3>
-        <label><input type="radio" name="q2" value="GET"> GET</label><br>
-        <label><input type="radio" name="q2" value="POST"> POST</label><br>
-        <label><input type="radio" name="q2" value="PUT"> PUT</label><br>
-        <label><input type="radio" name="q2" value="DELETE"> DELETE</label>
-      </div>
-
-      <!-- Q3 -->
-      <div class="question-box fade-in">
-        <h3>3. What major improvement was introduced with HTTP/1.1?</h3>
-        <label><input type="radio" name="q3" value="Persistent Connections"> Persistent Connections</label><br>
-        <label><input type="radio" name="q3" value="Binary Framing"> Binary Framing</label><br>
-        <label><input type="radio" name="q3" value="UDP Transport"> UDP Transport</label>
-      </div>
-
-      <!-- Q4 -->
-      <div class="question-box fade-in">
-        <h3>4. What protocol encrypts HTTPS?</h3>
-        <label><input type="radio" name="q4" value="TLS"> TLS</label><br>
-        <label><input type="radio" name="q4" value="SSH"> SSH</label><br>
-        <label><input type="radio" name="q4" value="IPSec"> IPSec</label>
-      </div>
-
-      <!-- Q5 -->
-      <div class="question-box fade-in">
-        <h3>5. Select TWO features of HTTP/2:</h3>
-        <label><input type="checkbox" id="q5a" value="Multiplexing"> Multiplexing</label><br>
-        <label><input type="checkbox" id="q5b" value="Server Push"> Server Push</label><br>
-        <label><input type="checkbox" id="q5c" value="UDP Transport"> UDP Transport</label><br>
-        <label><input type="checkbox" id="q5d" value="Chunked"> Chunked Encoding Only</label>
-      </div>
-
-      <button class="btn" onclick="gradeQuiz()">Submit Quiz</button>
-      <button class="btn" onclick="resetQuiz()" style="background:#666;">Reset Quiz</button>
-
-      <div id="results" class="result-box"></div>
-
-    </main>
-
-    <footer class="site-footer fade-in">
-      <div class="small">© Edric Huang — IT 3203</div>
-      <div class="small">Class Project — Introduction to Web Development</div>
-    </footer>
-
-  </div>
-
-  <!-- External JavaScript (Required for Milestone 3) -->
-  <script src="script.js"></script>
-
-/* Mobile-friendly adjustments (tablet and phone) */
-@media (max-width: 900px) {
-  .container { width: min(800px, 96%); padding: 24px; }
-  nav ul { gap: 10px; padding: 8px; }
-  .question-box { padding: 14px; }
-  .btn { padding: 12px 18px; font-size: 1.05rem; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (max-width: 480px) {
-  .container { margin: 20px 8px; padding: 14px; }
-  nav ul { flex-direction: column; align-items: stretch; gap: 6px; }
-  nav ul li { text-align: center; }
-  .section-badge { font-size: 0.8rem; padding: 3px 8px; }
-  input[type="text"] { width: 100%; padding: 10px; font-size: 1rem; }
-  .question-box { padding: 12px; }
-  /* make inputs and buttons larger for touch */
-  input[type="radio"], input[type="checkbox"] { transform: scale(1.1); margin-right: 8px; }
-  .btn { width: 100%; text-align: center; }
+html, body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f5f8ff;       /* Site-wide light blue background */
+  color: #1a1a1a;            /* Standard text color */
+  line-height: 1.6;
+  min-height: 100%;
 }
 
 
-</body>
-</html>
+/* ============================================================
+   2. MAIN PAGE CONTAINER
+   ============================================================ */
+
+.container {
+  width: min(900px, 92%);
+  margin: 40px auto;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #e0e6f0;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+
+/* ============================================================
+   3. HEADER SECTION
+   ============================================================ */
+
+#main-header {
+  text-align: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #d9e4ff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#main-header h1 {
+  font-size: 1.7rem;
+  color: #0b63b8;
+}
+
+#main-header p {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+
+/* ============================================================
+   4. NAVIGATION BAR
+   ============================================================ */
+
+nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  padding: 8px 14px;
+  background: #eaf1ff;
+  border-radius: 8px;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #0b63b8;
+  transition: 0.2s ease;
+  border: 1px solid transparent;
+}
+
+nav a:hover,
+nav a:focus {
+  background: #d3e2ff;
+  border-color: #bfd3ff;
+  color: #084c8e;
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   5. MAIN CONTENT LAYOUT
+   ============================================================ */
+
+main.article {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 25px;
+}
+
+h2 {
+  color: #0b4da0;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #d9e4ff;
+}
+
+p {
+  color: #1a1a1a;
+}
+
+
+/* ============================================================
+   6. IMAGE CONTAINER STYLING
+   ============================================================ */
+
+.figure {
+  width: 100%;
+  text-align: center;
+  padding: 14px;
+  border-radius: 10px;
+  background: #f8faff;
+  border: 1px dashed #b8c8e8;
+  color: #64748b;
+}
+
+
+/* ============================================================
+   7. KEY CONCEPTS GRID
+   ============================================================ */
+
+.concepts-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.concept-card {
+  padding: 14px;
+  background: linear-gradient(180deg, #ffffff, #f3f7ff);
+  border: 1px solid #dbe4f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);
+}
+
+/* --------------------------------------------
+   Remove bullets *only* inside Key Concepts cards
+--------------------------------------------- */
+.concept-card ul,
+.concept-card li {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+
+/* ============================================================
+   8. NORMAL LIST STYLE (APPLIES TO ALL OTHER PAGES)
+   ============================================================ */
+
+main ul,
+main li {
+  list-style-position: inside;
+  padding-left: 0.5rem;
+}
+
+
+/* ============================================================
+   9. TABLE STYLING
+   ============================================================ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid #e0e6f0;
+  padding: 8px 10px;
+}
+
+th {
+  background: #eaf1ff;
+  color: #0b4da0;
+}
+
+
+/* ============================================================
+   10. FOOTER STYLING
+   ============================================================ */
+
+.site-footer {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 2px solid #d9e4ff;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #475569;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.site-footer a {
+  color: #0b63b8;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+  color: #084c8e;
+}
+
+
+/* ============================================================
+   11. UTILITY CLASSES
+   ============================================================ */
+
+.small {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* Reusable badge styles */
+.badge,
+.section-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #084c8e;
+  border-radius: 999px;
+  background: #dbe7ff;
+  margin-bottom: 8px;
+}
+
+
+/* ============================================================
+   12. INFO BOX
+   ============================================================ */
+
+.info-box {
+  background: #eef5ff;
+  border-left: 5px solid #0b63b8;
+  padding: 14px 16px;
+  margin: 16px 0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+
+/* ============================================================
+   13. FADE-IN ANIMATION
+   ============================================================ */
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+
+/* ============================================================
+   14. CARD EFFECT UTILITY
+   ============================================================ */
+
+.card-effect {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+
+/* ============================================================
+   15. RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .container {
+    padding: 18px;
+    margin: 15px auto;
+  }
+
+  #main-header h1 {
+    font-size: 1.3rem;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+  }
+
+  p, li {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 520px) {
+  nav ul {
+    flex-wrap: wrap;
+  }
+}
 
 
 
