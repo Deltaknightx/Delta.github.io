@@ -1,6 +1,5 @@
 /* ============================================================
    quiz.js — Full Working Logic for quiz.html
-   Author: Edric Huang — IT 3203
    Handles scoring, validation, feedback, reset, and UI updates.
 ============================================================ */
 
