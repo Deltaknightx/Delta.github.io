@@ -1,27 +1,9 @@
 /* ============================================================
-   style.css — FULLY REWORKED + COMMENTED
-   Author: Edric Huang
-   Course: IT 3203 — Intro to Web Development
-   Milestone 2 — Clean, Modern, Responsive Design
+   style.css — Fully Updated for Milestone 3 (Responsive Upgrade)
+   Author: Edric Huang — IT 3203
+============================================================ */
 
-   This stylesheet defines the entire look-and-feel of the site.
-   Includes:
-   • Global reset
-   • Layout and typography
-   • Navigation bar
-   • Responsive container
-   • Section badges, info-boxes
-   • Animations
-   • Grid for Key Concepts
-   • Table styling
-   • Footer styling
-   ============================================================ */
-
-
-/* ============================================================
-   1. GLOBAL RESET & BASE SETTINGS
-   ============================================================ */
-
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -30,17 +12,13 @@
 
 html, body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  background: #f5f8ff;       /* Site-wide light blue background */
-  color: #1a1a1a;            /* Standard text color */
+  background: #f5f8ff;
+  color: #1a1a1a;
   line-height: 1.6;
   min-height: 100%;
 }
 
-
-/* ============================================================
-   2. MAIN PAGE CONTAINER
-   ============================================================ */
-
+/* MAIN CONTAINER */
 .container {
   width: min(900px, 92%);
   margin: 40px auto;
@@ -51,11 +29,7 @@ html, body {
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
 
-
-/* ============================================================
-   3. HEADER SECTION
-   ============================================================ */
-
+/* HEADER */
 #main-header {
   text-align: center;
   padding-bottom: 12px;
@@ -75,11 +49,7 @@ html, body {
   color: #4b5563;
 }
 
-
-/* ============================================================
-   4. NAVIGATION BAR
-   ============================================================ */
-
+/* NAVIGATION */
 nav {
   margin-top: 10px;
   display: flex;
@@ -113,11 +83,7 @@ nav a:focus {
   transform: translateY(-1px);
 }
 
-
-/* ============================================================
-   5. MAIN CONTENT LAYOUT
-   ============================================================ */
-
+/* MAIN CONTENT */
 main.article {
   display: flex;
   flex-direction: column;
@@ -133,15 +99,7 @@ h2 {
   border-bottom: 2px solid #d9e4ff;
 }
 
-p {
-  color: #1a1a1a;
-}
-
-
-/* ============================================================
-   6. IMAGE CONTAINER STYLING
-   ============================================================ */
-
+/* IMAGES */
 .figure {
   width: 100%;
   text-align: center;
@@ -152,11 +110,12 @@ p {
   color: #64748b;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
 
-/* ============================================================
-   7. KEY CONCEPTS GRID
-   ============================================================ */
-
+/* CONCEPT GRID */
 .concepts-grid {
   display: grid;
   gap: 14px;
@@ -172,32 +131,14 @@ p {
   box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);
 }
 
-/* --------------------------------------------
-   Remove bullets *only* inside Key Concepts cards
---------------------------------------------- */
-.concept-card ul,
-.concept-card li {
-  list-style-type: none;
-  padding-left: 0;
-  margin-left: 0;
-}
-
-
-/* ============================================================
-   8. NORMAL LIST STYLE (APPLIES TO ALL OTHER PAGES)
-   ============================================================ */
-
+/* LISTS */
 main ul,
 main li {
   list-style-position: inside;
   padding-left: 0.5rem;
 }
 
-
-/* ============================================================
-   9. TABLE STYLING
-   ============================================================ */
-
+/* TABLES */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -215,11 +156,7 @@ th {
   color: #0b4da0;
 }
 
-
-/* ============================================================
-   10. FOOTER STYLING
-   ============================================================ */
-
+/* FOOTER */
 .site-footer {
   margin-top: 30px;
   padding-top: 15px;
@@ -232,27 +169,7 @@ th {
   gap: 4px;
 }
 
-.site-footer a {
-  color: #0b63b8;
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-  color: #084c8e;
-}
-
-
-/* ============================================================
-   11. UTILITY CLASSES
-   ============================================================ */
-
-.small {
-  font-size: 0.9rem;
-  color: #6b7280;
-}
-
-/* Reusable badge styles */
+/* BADGES */
 .badge,
 .section-badge {
   display: inline-block;
@@ -265,11 +182,7 @@ th {
   margin-bottom: 8px;
 }
 
-
-/* ============================================================
-   12. INFO BOX
-   ============================================================ */
-
+/* INFO BOX */
 .info-box {
   background: #eef5ff;
   border-left: 5px solid #0b63b8;
@@ -279,11 +192,7 @@ th {
   font-size: 0.95rem;
 }
 
-
-/* ============================================================
-   13. FADE-IN ANIMATION
-   ============================================================ */
-
+/* FADE IN */
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.6s ease forwards;
@@ -293,56 +202,90 @@ th {
   to { opacity: 1; }
 }
 
-
-/* ============================================================
-   14. CARD EFFECT UTILITY
-   ============================================================ */
-
-.card-effect {
-  background: #ffffff;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+/* QUIZ MOBILE FIXES */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
+.question-box {
+  padding: 16px;
+  border: 1px solid #dde6fa;
+  background: #f8faff;
+  border-radius: 8px;
+}
 
-/* ============================================================
-   15. RESPONSIVE DESIGN
-   ============================================================ */
+.btn {
+  background: #0b63b8;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
 
-@media (max-width: 600px) {
+.btn:hover {
+  background: #084c8e;
+}
+
+/* ===========================================
+   RESPONSIVE BREAKPOINTS
+=========================================== */
+
+/* Tablet (NEW) */
+@media (max-width: 900px) {
+  .container {
+    width: 95%;
+    padding: 24px;
+  }
+
   nav ul {
-    flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     padding: 10px;
   }
+}
 
+/* Mobile Layout */
+@media (max-width: 600px) {
   .container {
-    padding: 18px;
     margin: 15px auto;
+    padding: 18px;
   }
 
-  #main-header h1 {
-    font-size: 1.3rem;
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
   }
 
+  nav a {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  /* Touch-friendly quiz styling */
+  .question-box {
+    padding: 12px;
+  }
+
+  .quiz-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  #submit-btn, #reset-btn {
+    width: 100%;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 520px) {
   h2 {
     font-size: 1.15rem;
   }
-
-  p, li {
-    font-size: 0.95rem;
-  }
 }
-
-@media (max-width: 520px) {
-  nav ul {
-    flex-wrap: wrap;
-  }
-}
-
-
-
-
-
-
