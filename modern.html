@@ -4,12 +4,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!--
+    modern.html
+    Explains modern versions of HTTP (HTTP/2 and HTTP/3),
+    including performance improvements and security enhancements.
+  -->
+  
   <title>Modern HTTP — HTTP/2 & HTTP/3</title>
+
+    <!-- Global stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="container">
+
+    <!-- ==========================================
+         HEADER AREA
+         Page title + navigation bar reused on all pages
+    =========================================== -->
 
     <header id="main-header">
       <h1 class="fade-in">Modern HTTP: HTTP/2 & HTTP/3</h1>
@@ -28,28 +42,37 @@
       </nav>
     </header>
 
+    <!-- ==========================================
+         MAIN CONTENT AREA
+         Covers HTTP/2 and HTTP/3 in detail
+    =========================================== -->
+
     <main class="article">
 
+       <!-- ========= HTTP/2 Section ========= -->
       <section class="fade-in">
+        <!-- Badge used for timeline labeling -->
         <span class="section-badge">2015</span>
         <h2>HTTP/2 — Faster Loading Through Multiplexing</h2>
+
+        <!-- Description of HTTP/2 features -->
         <p>
           Standardized in 2015, HTTP/2 was designed to reduce latency and improve
           loading performance by delivering multiple resources simultaneously.
         </p>
-
+         <!-- Bullet points explaining each improvement -->
         <ul>
           <li><strong>Multiplexing:</strong> Multiple streams share one TCP connection</li>
           <li><strong>Header Compression (HPACK):</strong> Reduces overhead</li>
           <li><strong>Server Push:</strong> Sends assets early</li>
           <li><strong>Binary Framing:</strong> More efficient processing</li>
         </ul>
-
+       <!-- Highlight box -->
         <div class="info-box">
           HTTP/2 solves many HTTP/1.1 limitations but still suffers from TCP head-of-line blocking.
         </div>
       </section>
-
+      <!-- ========= HTTP/3 Section ========= -->
       <section class="fade-in">
         <span class="section-badge">2022</span>
         <h2>HTTP/3 — Powered by QUIC</h2>
@@ -70,7 +93,7 @@
         </div>
       </section>
 
-      <!-- NEW REQUIRED TABLE -->
+      <!-- NEW TABLE -->
       <section class="fade-in">
         <span class="section-badge">Comparison</span>
         <h2>HTTP/1.1 vs HTTP/2 vs HTTP/3</h2>
@@ -111,12 +134,18 @@
 
     </main>
 
+        <!-- ==========================================
+         FOOTER AREA
+    =========================================== -->
+    
     <footer class="site-footer fade-in">
       <div class="small">© Edric Huang — IT 3203</div>
       <div class="small">Class Project — Introduction to Web Development</div>
     </footer>
   </div>
 </body>
+
 </html>
+
 
 
