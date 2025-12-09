@@ -1,42 +1,20 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HTTP Quiz — Self Assessment</title>
 
-  <!--
-    quiz.html
-    Milestone 3 Requirement:
-    This page contains the full interactive quiz for the HTTP educational website.
-    The structure supports:
-      - Fill-in-the-blank
-      - Multiple-choice
-      - Multi-select
-      - Inline feedback areas
-      - Submit and reset controls
-    The quiz displays the score, pass/fail status, and per-question correctness
-    WITHOUT leaving the page, using JavaScript from quiz.js.
-  -->
-
-  <title>HTTP Quiz</title>
-
-  <!-- Global stylesheet -->
   <link rel="stylesheet" href="style.css">
-  <!-- Quiz logic script -->
-  <script src="quiz.js" defer></script>
+  <meta name="description" content="Interactive quiz for HTTP concepts.">
 </head>
 
 <body>
-  <!-- Page wrapper for consistent layout across the site -->
   <div class="container">
 
-    <!-- ==========================================
-         HEADER + NAVIGATION
-         Shared across all pages
-    =========================================== -->
-    <header>
-      <h1 class="fade-in">HTTP Quiz</h1>
+    <header id="main-header">
+      <h1>HTTP Self-Assessment Quiz</h1>
+      <p class="small">Test your knowledge of HTTP, HTTPS, HTTP/2 and HTTP/3.</p>
 
       <nav aria-label="Main navigation">
         <ul>
@@ -51,33 +29,77 @@
       </nav>
     </header>
 
-    <!-- ==========================================
-         MAIN QUIZ FORM SECTION
-         Milestone 3 Feature: Interactive + Dynamic
-    =========================================== -->
-    <main class="quiz-container">
-
-      <!-- Quiz form wrapper -->
-      <form id="quiz-form">
-
-        <!-- QUESTION 1: Fill-in-the-blank (Required by Milestone 3) -->
-        <div class="question-box">
-          <h3>1. HTTP is an _________-layer protocol in the OSI model.</h3>
-          <input type="text" id="q1" />
-          <!-- Feedback placeholder (JS fills this) -->
-          <div id="fb-q1" class="answer-feedback"></div>
+    <main class="article">
+      <section class="fade-in">
+        <span class="section-badge">Interactive</span>
+        <h2>Check Your Knowledge</h2>
+        <div class="info-box">
+          Answer the five questions and click "Submit" to see your score.
         </div>
+      </section>
 
-        <!-- QUESTION 2: Multiple choice -->
-        <div class="question-box">
-          <h3>2. Which HTTP method is used to request a resource from a server?</h3>
-          <label><input type="radio" name="q2" value="POST"> POST</label><br>
-          <label><input type="radio" name="q2" value="DELETE"> DELETE</label><br>
-          <label><input type="radio" name="q2" value="GET"> GET</label><br>
-          <div id="fb-q2" class="answer-feedback"></div>
-        </div>
+      <section class="fade-in">
+        <form id="quiz-form" class="quiz-container" novalidate>
 
-        <!-- QUESTION 3: Multiple choice -->
-        <div class="question-box">
-          <h3>3. What feature introduced in HTTP/1.1 keeps connections open for multiple requests?</h3>
-          <label><input type="radio
+          <!-- Q1 -->
+          <div class="question-box">
+            <h3>1. Fill in the blank:</h3>
+            <p>HTTP is an __________-layer protocol that uses a request–response model.</p>
+            <input type="text" id="q1" name="q1" placeholder="Type answer…" />
+            <div id="fb-q1" class="answer-feedback"></div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="question-box">
+            <h3>2. Which method was the only one supported in HTTP/0.9?</h3>
+            <label><input type="radio" name="q2" value="GET"> GET</label><br>
+            <label><input type="radio" name="q2" value="POST"> POST</label><br>
+            <label><input type="radio" name="q2" value="PUT"> PUT</label>
+            <div id="fb-q2" class="answer-feedback"></div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="question-box">
+            <h3>3. What major improvement did HTTP/1.1 introduce?</h3>
+            <label><input type="radio" name="q3" value="Persistent Connections"> Persistent Connections</label><br>
+            <label><input type="radio" name="q3" value="Server Push"> Server Push</label><br>
+            <label><input type="radio" name="q3" value="Binary"> Binary framing</label>
+            <div id="fb-q3" class="answer-feedback"></div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="question-box">
+            <h3>4. Which protocol provides encryption for HTTPS?</h3>
+            <label><input type="radio" name="q4" value="TLS"> TLS</label><br>
+            <label><input type="radio" name="q4" value="SSH"> SSH</label><br>
+            <label><input type="radio" name="q4" value="IPSec"> IPSec</label>
+            <div id="fb-q4" class="answer-feedback"></div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="question-box">
+            <h3>5. Which of the following belong to HTTP/2? (Select two)</h3>
+            <label><input type="checkbox" id="q5a" value="Multiplexing"> Multiplexing</label><br>
+            <label><input type="checkbox" id="q5b" value="Server Push"> Server Push</label><br>
+            <label><input type="checkbox" id="q5c" value="UDP"> UDP transport</label>
+            <div id="fb-q5" class="answer-feedback"></div>
+          </div>
+
+          <!-- Buttons -->
+          <button type="button" id="submit-btn" class="btn">Submit</button>
+          <button type="button" id="reset-btn" class="btn" style="background:#666;">Reset</button>
+
+          <div id="results" class="result-box" hidden></div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer fade-in">
+      <div class="small">© Edric Huang — IT 3203</div>
+      <div class="small">Class project — Introduction to Web Development</div>
+    </footer>
+  </div>
+
+  <script src="quiz.js" defer></script>
+</body>
+</html>
