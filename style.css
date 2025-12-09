@@ -290,3 +290,23 @@ th {
   }
 }
 
+/* Make tables scroll smoothly on mobile */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optional: keep table readable on small screens */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 8px;
+  text-align: left;
+  word-break: break-word; /* prevents overflow */
+}
+
+
+
