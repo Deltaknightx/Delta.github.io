@@ -1,5 +1,6 @@
 /* ============================================================
    quiz.js — Full Working Logic for quiz.html
+   Created by Edric Huang IT Intro to Web Devopment W01
    Handles scoring, validation, feedback, reset, and UI updates.
 ============================================================ */
 
