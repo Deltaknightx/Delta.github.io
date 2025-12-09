@@ -168,8 +168,30 @@
   <!-- External JavaScript (Required for Milestone 3) -->
   <script src="script.js"></script>
 
+/* Mobile-friendly adjustments (tablet and phone) */
+@media (max-width: 900px) {
+  .container { width: min(800px, 96%); padding: 24px; }
+  nav ul { gap: 10px; padding: 8px; }
+  .question-box { padding: 14px; }
+  .btn { padding: 12px 18px; font-size: 1.05rem; }
+}
+
+@media (max-width: 480px) {
+  .container { margin: 20px 8px; padding: 14px; }
+  nav ul { flex-direction: column; align-items: stretch; gap: 6px; }
+  nav ul li { text-align: center; }
+  .section-badge { font-size: 0.8rem; padding: 3px 8px; }
+  input[type="text"] { width: 100%; padding: 10px; font-size: 1rem; }
+  .question-box { padding: 12px; }
+  /* make inputs and buttons larger for touch */
+  input[type="radio"], input[type="checkbox"] { transform: scale(1.1); margin-right: 8px; }
+  .btn { width: 100%; text-align: center; }
+}
+
+
 </body>
 </html>
+
 
 
 
