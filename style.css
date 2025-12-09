@@ -1,158 +1,291 @@
 /* ============================================================
-   style.css
-   Global stylesheet for the IT 3203 HTTP Project Website
-   Milestone 3 Additions:
-     - Responsive breakpoints (900px + 600px)
-     - Mobile-friendly navigation
-     - Responsive quiz layout
-     - Responsive images and tables
-     - Improved spacing, padding, and readability
+   style.css — Fully Updated for Milestone 3 (Responsive Upgrade)
+   Author: Edric Huang — IT 3203
 ============================================================ */
 
-/* ====== Base Page Layout ====== */
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
+/* RESET */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Container applied across all pages */
+html, body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f5f8ff;
+  color: #1a1a1a;
+  line-height: 1.6;
+  min-height: 100%;
+}
+
+/* MAIN CONTAINER */
 .container {
-  width: 85%;
-  margin: auto;
-  background: white;
-  padding: 20px;
+  width: min(900px, 92%);
+  margin: 40px auto;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #e0e6f0;
   border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
 
-/* ====== Navigation Bar ====== */
+/* HEADER */
+#main-header {
+  text-align: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #d9e4ff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#main-header h1 {
+  font-size: 1.7rem;
+  color: #0b63b8;
+}
+
+#main-header p {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+/* NAVIGATION */
+nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
 nav ul {
   list-style: none;
-  padding: 0;
   display: flex;
-  gap: 20px;
+  gap: 14px;
+  padding: 8px 14px;
+  background: #eaf1ff;
+  border-radius: 8px;
 }
 
 nav a {
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 6px;
-  transition: 0.3s;
+  font-weight: 600;
+  color: #0b63b8;
+  transition: 0.2s ease;
+  border: 1px solid transparent;
 }
 
-/* Hover effects (Milestone 1 requirement) */
-nav a:hover {
-  background-color: #dddddd;
+nav a:hover,
+nav a:focus {
+  background: #d3e2ff;
+  border-color: #bfd3ff;
+  color: #084c8e;
+  transform: translateY(-1px);
 }
 
-/* ====== Headings + Utility Styles ====== */
-.section-badge {
-  background: #444;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 0.85rem;
+/* MAIN CONTENT */
+main.article {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 25px;
 }
 
-.info-box {
-  background: #f9f9f9;
+h2 {
+  color: #0b4da0;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #d9e4ff;
+}
+
+/* IMAGES */
+.figure {
+  width: 100%;
+  text-align: center;
   padding: 14px;
-  border-left: 5px solid #444;
-  border-radius: 8px;
+  border-radius: 10px;
+  background: #f8faff;
+  border: 1px dashed #b8c8e8;
+  color: #64748b;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* CONCEPT GRID */
+.concepts-grid {
+  display: grid;
+  gap: 14px;
   margin-top: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-/* ====== Table Styles (Milestone 3) ====== */
-.table-wrapper {
-  overflow-x: auto; /* Allows scrolling on mobile */
+.concept-card {
+  padding: 14px;
+  background: linear-gradient(180deg, #ffffff, #f3f7ff);
+  border: 1px solid #dbe4f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);
 }
 
+/* LISTS */
+main ul,
+main li {
+  list-style-position: inside;
+  padding-left: 0.5rem;
+}
+
+/* TABLES */
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid #e0e6f0;
+  padding: 8px 10px;
 }
 
 th {
-  background-color: #444;
-  color: white;
+  background: #eaf1ff;
+  color: #0b4da0;
 }
 
-td, th {
-  padding: 12px;
-  border: 1px solid #ddd;
+/* FOOTER */
+.site-footer {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 2px solid #d9e4ff;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #475569;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-/* ====== QUIZ STYLES (Milestone 3 Feature) ====== */
+/* BADGES */
+.badge,
+.section-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #084c8e;
+  border-radius: 999px;
+  background: #dbe7ff;
+  margin-bottom: 8px;
+}
+
+/* INFO BOX */
+.info-box {
+  background: #eef5ff;
+  border-left: 5px solid #0b63b8;
+  padding: 14px 16px;
+  margin: 16px 0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+/* FADE IN */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* QUIZ MOBILE FIXES */
 .quiz-container {
-  background: #fafafa;
-  padding: 20px;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
 .question-box {
-  background: #ffffff;
-  margin-bottom: 20px;
-  padding: 14px;
-  border-radius: 10px;
-  border: 1px solid #eee;
+  padding: 16px;
+  border: 1px solid #dde6fa;
+  background: #f8faff;
+  border-radius: 8px;
 }
 
-.answer-feedback {
-  margin-top: 6px;
-  font-weight: bold;
-}
-
-.button-row {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-button {
-  padding: 10px 18px;
-  border-radius: 6px;
+.btn {
+  background: #0b63b8;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
 }
 
-/* ====== RESPONSIVE DESIGN ======
-   Milestone 3 Requirement
-================================== */
+.btn:hover {
+  background: #084c8e;
+}
 
-/* Tablet Breakpoint — applies around 768–900px screens */
+/* ===========================================
+   RESPONSIVE BREAKPOINTS
+=========================================== */
+
+/* Tablet (NEW) */
 @media (max-width: 900px) {
-  nav ul {
-    gap: 10px;
-  }
   .container {
     width: 95%;
+    padding: 24px;
+  }
+
+  nav ul {
+    gap: 8px;
+    padding: 10px;
   }
 }
 
-/* Mobile Breakpoint — main requirement for Milestone 3 */
+/* Mobile Layout */
 @media (max-width: 600px) {
+  .container {
+    margin: 15px auto;
+    padding: 18px;
+  }
 
   nav ul {
-    flex-direction: column; /* Stacked menu */
+    flex-direction: column;
     width: 100%;
+    gap: 6px;
   }
 
   nav a {
-    padding: 14px;
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  /* Touch-friendly quiz styling */
+  .question-box {
+    padding: 12px;
+  }
+
+  .quiz-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
     font-size: 1rem;
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
+  #submit-btn, #reset-btn {
+    width: 100%;
   }
+}
 
-  button {
-    width: 100%;  /* Makes quiz buttons tap-friendly */
-  }
-
-  .quiz-container {
-    padding: 10px;
+/* Extra small screens */
+@media (max-width: 520px) {
+  h2 {
+    font-size: 1.15rem;
   }
 }
